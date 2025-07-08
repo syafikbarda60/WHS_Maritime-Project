@@ -1,0 +1,171 @@
+@use "sass:color";
+
+.section-1{
+    width: 100%;
+    .hero{
+        background-image: url('/images/tb2.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+
+        height: 100vh; // Atau gunakan 100vh untuk fullscreen
+        width: 1521px;   // Lebar penuh layar
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+        .overlay{
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100vh;
+            width: 1521px;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+       
+            display: flex
+        }
+        
+        .hero-content {
+        padding: 2rem;
+        border-radius: 12px;
+        max-width: 700px;
+        margin: 0 auto;
+        margin-left: 20px;
+        margin-top: 90px;
+        color: #fff;
+        h1{
+            font-size: 4.5em;
+            text-align: left;
+        }
+
+        h2{
+            font-size: 3em;
+            text-align: left;
+        }
+
+        h3{
+            font-size: 2em;
+            text-align: left;
+        }
+
+        p{
+            font-size: 1em;
+            text-align: left;
+        }
+        .btn-primary{
+                display: inline-block;
+                background-color: #d91d1d; // warna latar baru
+                border-color: #d91d1d;
+
+                &:hover {
+                   background-color: color.adjust(#3971B8, $lightness: -10%);
+                    border-color: color.adjust(#3971B8, $lightness: -10%);
+                    }
+                &:focus,
+                &:active {
+                    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+            }
+         }
+     }
+
+}
+
+.bg-light{
+    background-color: #b6b1b1;
+
+}
+}
+
+.section-2 {
+  padding: 4rem 2rem;
+
+  h1 {
+    font-size: 4em;
+    font-weight: 600;
+  }
+
+  .custom-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 400px;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-start;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: all 0.4s ease;
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        transform: translateY(0);
+        transition: transform 0.4s ease;
+      }
+
+      .details {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.4s ease;
+        margin-top: 1rem;
+
+        p {
+          font-size: 0.95rem;
+          margin-bottom: 0.8rem;
+        }
+
+        .btn {
+          padding: 0.5rem 1rem;
+          font-size: 0.85rem;
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .card-img {
+      width: 100%;
+      border-radius: 40px;
+      aspect-ratio: 1/1.1;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+      object-position: center top;
+    }
+
+    &:hover {
+      transform: scale(1.02);
+
+      .card-img {
+        transform: scale(1.1);
+      }
+
+      .overlay {
+        opacity: 1;
+        background: rgba(0, 0, 0, 0.85);
+
+        .title {
+          transform: translateY(-40px);
+        }
+
+        .details {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    }
+  }
+}

@@ -2,78 +2,94 @@ $primary-color: #d91d1d;
 $secondary-color: #2654d0;
 $text-color: #000000;
 
+@use "sass:color";
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-body{
-    font-family: "Poppins", sans-serif;
-    height: 100%; /* Ensure they take full height */
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-h1{
-    font-size: 4.5em;
-}
+.navbar {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  padding: 1rem;
+  background-color: transparent;
 
-h2{
-    font-size: 3em;
-}
+  .nav-link {
+    text-transform: uppercase;
+    color: #fff !important;
+    font-weight: 500;
+    margin-left: 20px;
+    transition: color 0.3s ease;
 
-h3{
-    font-size: 2em;
-}
+    &:hover {
+      color: $primary-color !important;
+    }
+  }
 
-p{
-    font-size: 1.2em;
-}
+  &.scrolled {
+    background-color: #c51c1c;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-header{
-    nav{
-        .nav-link{
-            text-transform: uppercase;
-            color:$text-color;
-            font-weight: 500;
-            margin-left:20px ;
-            color: #fff;
-        }
+    .nav-link {
+      color: #ffffff !important;
+    }
+  }
+
+  &.active {
+    background-color: #c51c1c;
+
+    .nav-link {
+      color: #ffffff !important;
     }
 
+    .dropdown-menu {
+      background-color: rgba(0, 0, 0, 0.9);
+      border: none;
+
+      .dropdown-item {
+        color: #fff !important;
+
+        &:hover {
+          background-color: $primary-color !important;
+        }
+      }
+    }
+  }
 }
 
-.section-1{
-    width: 100%;
-    .hero{
-        background-image: url('/images/tb2.jpg');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.navbar-toggler {
+  background-color: #ff0000;
+  border-color: #ff0000;
+  transition: all 0.3s ease;
 
-        height: 100vh; // Atau gunakan 100vh untuk fullscreen
-        width: 1536px;   // Lebar penuh layar
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        
-        .overlay{
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.4);
-            z-index: 0;
-        }
-        
-        .hero-content {
-        padding: 2rem;
-        border-radius: 12px;
-        max-width: 700px;
-        margin: 0 auto;
-        margin-left: 20px;
-        margin-top: 90px;
-        color: #fff;
-         }
-     }
+  &:focus,
+  &:active {
+    box-shadow: none;
+    outline: none;
+    background-color: color.adjust(#ff0000, $lightness: -10%);
+    border-color: color.adjust(#ff0000, $lightness: -10%);
+  }
 
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+@keyframes slidedown {
+  from {
+    top: -100px;
+  }
+  to {
+    top: 0;
+  }
+}
+
+// Jika perlu pastikan tidak menimpa .active di layar besar
+@media (min-width: 992px) {
+  .navbar.active {
+    background-color: transparent !important;
+  }
 }
