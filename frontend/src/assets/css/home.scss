@@ -9,7 +9,7 @@
         background-repeat: no-repeat;
 
         height: 100vh; // Atau gunakan 100vh untuk fullscreen
-        width: 1521px;   // Lebar penuh layar
+        width: 100vw;   // Lebar penuh layar
         
         display: flex;
         justify-content: center;
@@ -20,7 +20,7 @@
             top: 0;
             left: 0;
             height: 100vh;
-            width: 1521px;
+            width: 100vw;
             background: rgba(0, 0, 0, 0.5);
             z-index: 0;
        
@@ -31,10 +31,13 @@
         padding: 2rem;
         border-radius: 12px;
         max-width: 700px;
+        height: 400px;
         margin: 0 auto;
         margin-left: 20px;
-        margin-top: 90px;
+        margin-top: 150px;
         color: #fff;
+
+        
         h1{
             font-size: 4.5em;
             text-align: left;
@@ -55,7 +58,7 @@
             text-align: left;
         }
         .btn-primary{
-                display: inline-block;
+                align-self: flex-start;
                 background-color: #d91d1d; // warna latar baru
                 border-color: #d91d1d;
 
@@ -73,7 +76,7 @@
 }
 
 .bg-light{
-    background-color: #b6b1b1;
+    background-color: #d9c7c7;
 
 }
 }
@@ -155,7 +158,7 @@
 
       .overlay {
         opacity: 1;
-        background: rgba(0, 0, 0, 0.85);
+        background: rgba(0, 0, 0, 0.65);
 
         .title {
           transform: translateY(-40px);
@@ -169,3 +172,54 @@
     }
   }
 }
+
+.section3{
+    .about-us {
+  .about-text {
+    h2 {
+      font-weight: 700;
+    }
+    h4 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    p {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  .about-video {
+    video {
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+
+}
+
+.section-4{
+h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+p {
+  font-size: 1rem;
+  color: #555;
+  text-align: justify;
+}
+
+.image-wrapper {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+}
+

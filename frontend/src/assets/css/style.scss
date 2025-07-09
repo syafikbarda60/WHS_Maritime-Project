@@ -10,6 +10,7 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 .navbar {
@@ -93,3 +94,57 @@ body {
     background-color: transparent !important;
   }
 }
+
+.footer-section {
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem;
+
+  .footer-content {
+    padding-bottom: 4rem;
+
+    h5 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.2rem 0;
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    .rina-logo {
+      max-width: 300px;
+      margin-bottom: 0.5rem;
+      margin-top: 20px;
+    }
+
+    .cert-label {
+      font-weight: 600;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .cert-iso {
+      font-weight: bold;
+      color: #00a3e0;
+      font-size: 1rem;
+    }
+  }
+
+  .footer-wave {
+    position: relative; // Ubah dari absolute ke relative
+  margin-top: -15px;
+  z-index: 1;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 20px;
+  }
+  }
+}
+
