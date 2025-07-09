@@ -3,6 +3,7 @@
 .section-1{
     width: 100%;
     .hero{
+        position: relative;
         background-image: url('/images/tb2.jpg');
         background-size: cover;
         background-position: center;
@@ -14,6 +15,27 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
+         .btn-primary{
+                width: 200px;
+                font-size: 20px;
+                position: absolute;
+                align-self: flex-start;
+                background-color: #d91d1d; // warna latar baru
+                border-color: #d91d1d;
+                bottom: 6rem;
+                left: 4rem;
+                border-radius: 5px;
+
+                &:hover {
+                   background-color: color.adjust(#d91d1d, $lightness: -10%);
+                    border-color: color.adjust(#d91d1d, $lightness: -10%);
+                    }
+                &:focus,
+                &:active {
+                    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+            }
+         }
         
         .overlay{
             position: absolute;
@@ -36,20 +58,20 @@
         margin-left: 20px;
         margin-top: 150px;
         color: #fff;
-
         
+
         h1{
-            font-size: 4.5em;
+            font-size: 4em;
             text-align: left;
         }
 
         h2{
-            font-size: 3em;
+            font-size: 2.5em;
             text-align: left;
         }
 
         h3{
-            font-size: 2em;
+            font-size: 1.5em;
             text-align: left;
         }
 
@@ -57,21 +79,8 @@
             font-size: 1em;
             text-align: left;
         }
-        .btn-primary{
-                align-self: flex-start;
-                background-color: #d91d1d; // warna latar baru
-                border-color: #d91d1d;
-
-                &:hover {
-                   background-color: color.adjust(#3971B8, $lightness: -10%);
-                    border-color: color.adjust(#3971B8, $lightness: -10%);
-                    }
-                &:focus,
-                &:active {
-                    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-            }
-         }
      }
+
 
 }
 
@@ -174,7 +183,7 @@
 }
 
 .section3{
-    .about-us {
+    
   .about-text {
     h2 {
       font-weight: 700;
@@ -189,16 +198,28 @@
   }
 
   .about-video {
+    .video-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; // buat rasio 16:9 yang konsisten
+    overflow: hidden;
+
     video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // atau contain jika ingin seluruh video terlihat
+      border-radius: 12px;
       box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
     }
-  }
+  
 }
 
 
 }
 
 .section-4{
+    min-width: 100vw;
 h1 {
   font-size: 3rem;
   font-weight: bold;
@@ -221,5 +242,58 @@ p {
   width: 100%;
   height: auto;
 }
+
 }
 
+.text-carousel-container {
+  text-align: center;
+  padding: 40px 20px;
+  background: #ffffff;
+  min-height: 200px;
+  position: relative;
+}
+
+.text-content {
+  transition: all 0.5s ease-in-out;
+}
+
+.text-content.fade-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-content.fade-out {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.text-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.text-content p {
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #666;
+}
+
+.indicators {
+  margin-top: 20px;
+}
+
+.indicators button {
+  width: 8px;
+  height: 8px;
+  margin: 0 5px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ccc;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.indicators button.active {
+  background-color: #d91d1d;
+}
