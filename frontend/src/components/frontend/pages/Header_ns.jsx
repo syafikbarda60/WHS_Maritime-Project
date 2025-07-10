@@ -7,8 +7,8 @@ import Container from 'react-bootstrap/Container';
 
 const Header_ns= () => {
   return (
+    <section className='nosticky'>
     <header>
-      <nonsticky>
       <Navbar
         expand="lg"
         fixed="top">
@@ -36,8 +36,8 @@ const Header_ns= () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      </nonsticky>
     </header>
+    </section>
     
   );
 };

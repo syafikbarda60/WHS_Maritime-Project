@@ -8,6 +8,8 @@ import About from './components/frontend/About';
 import './assets/css/style.scss';
 import './assets/css/home.scss';
 import Ourservice_I1 from './components/frontend/Ourservice_I1';
+import Login from './components/backend/Login';
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -18,6 +20,7 @@ function App() {
         <Route path='/'element={<Home/>}/>
         <Route path='/about'element={<About/>}/>
         <Route path='/Iskandar 1'element={<Ourservice_I1/>}/>
+        <Route path='/admin/login'element={<Login/>}/>
       </Routes>
     </BrowserRouter>
     </>

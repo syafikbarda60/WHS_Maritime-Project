@@ -13,7 +13,7 @@ body {
   overflow-x: hidden;
 }
 
-.nonsticky{
+.nosticky{
     .navbar {
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   padding: 1rem;
@@ -27,24 +27,24 @@ body {
     transition: color 0.3s ease;
 
     &:hover {
-      color: $primary-color !important;
+      color: #ffd700 !important; // kuning saat hover
     }
   }
 
   &.scrolled {
-    background-color: #c51c1c;
+    background-color: $primary-color;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
     .nav-link {
-      color: #ffffff !important;
+      color: #fff !important;
     }
   }
 
   &.active {
-    background-color: #c51c1c;
+    background-color: $primary-color;
 
     .nav-link {
-      color: #ffffff !important;
+      color: #fff !important;
     }
 
     .dropdown-menu {
@@ -55,24 +55,25 @@ body {
         color: #fff !important;
 
         &:hover {
-          background-color: $primary-color !important;
+          background-color: darken($primary-color, 10%) !important;
         }
       }
     }
   }
 }
 
+// Toggler (hamburger) styles
 .navbar-toggler {
-  background-color: #ff0000;
-  border-color: #ff0000;
+  background-color: $primary-color;
+  border-color: $primary-color;
   transition: all 0.3s ease;
 
   &:focus,
   &:active {
     box-shadow: none;
     outline: none;
-    background-color: color.adjust(#ff0000, $lightness: -10%);
-    border-color: color.adjust(#ff0000, $lightness: -10%);
+    background-color: darken($primary-color, 10%);
+    border-color: darken($primary-color, 10%);
   }
 
   .navbar-toggler-icon {
@@ -80,6 +81,7 @@ body {
   }
 }
 
+// animasi slide down (optional)
 @keyframes slidedown {
   from {
     top: -100px;
@@ -89,14 +91,12 @@ body {
   }
 }
 
-// Jika perlu pastikan tidak menimpa .active di layar besar
+// pastikan .active tidak tertimpa di layar besar
 @media (min-width: 992px) {
   .navbar.active {
     background-color: $primary-color !important;
   }
 }
-
-
 }
 
 .navbar {
