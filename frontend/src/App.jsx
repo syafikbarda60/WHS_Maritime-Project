@@ -7,6 +7,7 @@ import Home from './components/frontend/Home';
 import About from './components/frontend/About';
 import './assets/css/style.scss';
 import './assets/css/home.scss';
+import Ourservice_I1 from './components/frontend/Ourservice_I1';
 function App() {
   const [count, setCount] = useState(0)
 
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path='/'element={<Home/>}/>
         <Route path='/about'element={<About/>}/>
+        <Route path='/Iskandar 1'element={<Ourservice_I1/>}/>
       </Routes>
     </BrowserRouter>
     </>

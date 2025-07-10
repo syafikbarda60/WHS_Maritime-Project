@@ -15,7 +15,13 @@
     import { motion } from "framer-motion";
     import "animate.css";
 
+    import Header from '@components/frontend/pages/Header';
+    import Footer from '@components/frontend/pages/Footer';
+    //import Header_ns from '@components/frontend/pages/Header_ns';
 
+
+
+//----------------------------------------------header effect------------------------------------------------------------------------------------------------------------------
     const Home = () => {
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
@@ -35,6 +41,7 @@
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
+//-------------------------------------------------------carousel text component--------------------------------------------------------------------------------------------------
     const data = [
     {
     title: "Homogenously Blended Desired Coal Product",
@@ -55,7 +62,9 @@
   }
   ];
 
-  
+
+
+  //-------------------------------------------------------carousel text------------------------------------------------------------------------------------------------------
   const [index, setIndex] = useState(0);
   const [fade, setFade] = useState(true);
 
@@ -66,58 +75,41 @@
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % data.length);
         setFade(true);
-      }, 500); // waktu fade out
-    }, 3000); // ganti teks tiap 3 detik
+      }, 500); // fade out interval time
+    }, 7000); // transition text, change every 7 sencond
 
     return () => clearInterval(interval);
   }, []);
 
-   
-    
+//---------------------------------------------------------------news-------------------------------------------------------------------------------------------------------------------
+  const newsItems = [
+  {
+    date: '11 May 2025',
+    title: 'Bali Golf',
+    description:
+      'In Today’s Fast Paced World Of Business, Cultivating Stronger Relationship And Acquiring New And Potential Clients, Is Central...',
+    image: '/images/tb2.jpg',
+    color: '#E63946',
+  },
+  {
+    date: '14 April 2025',
+    title: 'Coaltrans',
+    description:
+      'Coaltrans, Is The Single Largest Reputable Conference For The Coal Industry In Indonesia, Which Offers A Dynamic Platform...',
+    image: '/images/tb2.jpg',
+    color: '#457B9D',
+  },
+];
+
+    const goTo = (i) => {
+    setIndex(i);
+    setFade(true);
+    };
+ 
     return (
         <>
-        <header>
-            <div>
-        <Navbar expand="lg" 
-            fixed="top" 
-            onToggle={(expanded) => setMenuOpen(expanded)}
-            className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'active' : ''}`}>
-        <Container>
-            <Navbar.Brand href="#home"><span><img src="images/WHS Logo.png" alt="logo"height={55}/></span></Navbar.Brand >
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ms-auto">
-                <Nav.Link href="#home" className='nav-link'>Home</Nav.Link>
 
-        <NavDropdown title="Our Service" id="basic-nav-dropdown">
-                <NavDropdown.Item href="#floating-terminal">
-                  Floating Terminal (WHS Iskandar 1)
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#ocean-flow-1">
-                  Floating Crane - Ocean Flow 1
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#ocean-flow-3">
-                  Floating Crane - Ocean Flow 3
-                </NavDropdown.Item>
-                <NavDropdown.Item href="#padmasari">
-                  Floating Crane - Padmasari
-                </NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#tug-barge">
-                  Tug and Barge (Prime Series)
-                </NavDropdown.Item>
-        </NavDropdown>
-                
-                <Nav.Link href="#link"className='nav-link'>gallery</Nav.Link>
-                <Nav.Link href="#link"className='nav-link'>Contact Us</Nav.Link>
-                <Nav.Link href="#link"className='nav-link'>Login</Nav.Link>
-                <Nav.Link href="#link"className='nav-link'>Exdoma</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Container>
-        </Navbar>
-        </div>
-        </header>
+        <Header />
 
         <main>
         <section className="section-1">        
@@ -184,65 +176,78 @@
 
 
         <section className='section-4 py-5'>
-            <Container>
-        <Row className="align-items-center">
-          {/* Teks */}
-          <Col md={6}>
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <h1>
-                ABOUT <span style={{ color: "#d91d1d" }}>US</span> 
-              </h1>
-              <p>
-                PT. WHS Maritime Investments is a company engaged in domestic and international logistics and shipping in Indonesia, providing services such as transshipment, floating storage terminals, floating transhippers, as well as tug & barge operations. Established in 2006, the company is licensed under the Indonesian Ministry of Transportation (Kemenhub RI).
+  <Container>
+    <Row className="align-items-center">
+      {/* Teks */}
+      <Col md={6}>
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h1>
+            ABOUT <span style={{ color: "#d91d1d" }}>US</span>
+          </h1>
+          <p>
+            PT. WHS Maritime Investments is a company engaged in domestic and international logistics and shipping in Indonesia, providing services such as transshipment, floating storage terminals, floating transhippers, as well as tug & barge operations. Established in 2006, the company is licensed under the Indonesian Ministry of Transportation (Kemenhub RI).
 
-Headquartered in Jakarta, with field offices in Samarinda, Banjarmasin, and Muara Satui, WHS Maritime upholds the principles of Integrity, Safety, and Customer Satisfaction.
+            Headquartered in Jakarta, with field offices in Samarinda, Banjarmasin, and Muara Satui, WHS Maritime upholds the principles of Integrity, Safety, and Customer Satisfaction.
 
-Its strengths include advanced conveyor systems, high loading rates (over 30,000 MT/day), delivery of homogenized coal, and an efficient integrated fleet.
+            Its strengths include advanced conveyor systems, high loading rates (over 30,000 MT/day), delivery of homogenized coal, and an efficient integrated fleet.
 
-The main fleet comprises WHS Iskandar 1 (with a capacity of 54,000–60,000 tons) and three floating cranes: Ocean Flow 1, Ocean Flow 3, and Padmasari.
-              </p>
-            </motion.div>
-          </Col>
+            The main fleet comprises WHS Iskandar 1 (with a capacity of 54,000–60,000 tons) and three floating cranes: Ocean Flow 1, Ocean Flow 3, and Padmasari.
+          </p>
+        </motion.div>
+      </Col>
 
-          {/* Gambar dengan overlay animasi */}
-          <Col md={6} className="position-relative">
-            <motion.div
-              className="image-wrapper"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-              style={{ position: "relative", overflow: "hidden" }}
-            >
-              <img
-                src="/images/tb2.jpg"
-                alt="about"
-                style={{ width: "100%", borderRadius: "8px" }}
-              />
-              <motion.div
-                className="overlay"
-                initial={{ width: "100%" }}
-                whileInView={{ width: "0%" }}
-                transition={{ duration: 1, delay: 0.3 }}
-                viewport={{ once: true }}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  height: "100%",
-                  backgroundColor: "#d91d1d", // oranye
-                  zIndex: 1,
-                }}
-              />
-            </motion.div>
-          </Col>
-        </Row>
-      </Container>
+      {/* Gambar + Blue Box */}
+      <Col md={6} className="position-relative">
+        <motion.div
+          className="image-wrapper"
+          initial={{ opacity: 0, x: 50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          style={{ position: "relative", overflow: "visible" }}
+        >
+          {/* Kotak biru di belakang */}
+          <motion.div
+            className="blue-box"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+          />
+
+          {/* Gambar utama */}
+          <img
+            src="/images/tb2.jpg"
+            alt="about"
+            style={{ width: "100%", borderRadius: "8px", position: "relative", zIndex: 2 }}
+          />
+
+          {/* Overlay merah depan */}
+          <motion.div
+            className="overlay"
+            initial={{ width: "100%" }}
+            whileInView={{ width: "0%" }}
+            transition={{ duration: 1, delay: 0.3 }}
+            viewport={{ once: true }}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              height: "100%",
+              backgroundColor: "#d91d1d",
+              zIndex: 3,
+              borderRadius: "8px",
+            }}
+          />
+        </motion.div>
+      </Col>
+    </Row>
+  </Container>
         </section>
 
          <section className='section-2 bg-light py-5'>
@@ -299,8 +304,8 @@ The main fleet comprises WHS Iskandar 1 (with a capacity of 54,000–60,000 tons
             className={`about-text ${
               inView ? "animate__animated animate__slideInLeft" : ""
             }`}>
-            <container>
             <div className="text-carousel-container">
+                <container>
             <div className={`text-content ${fade ? "fade-in" : "fade-out"}`}>
                 <h2>{data[index].title}</h2>
                 <p>{data[index].desc}</p>
@@ -314,8 +319,8 @@ The main fleet comprises WHS Iskandar 1 (with a capacity of 54,000–60,000 tons
                 ></button>
                 ))}
             </div>
-            </div>
             </container>
+            </div>
             <Button variant="danger">Learn More</Button>
           </Col>
 
@@ -336,44 +341,41 @@ The main fleet comprises WHS Iskandar 1 (with a capacity of 54,000–60,000 tons
         </Row>
       </Container>
     </section>
+    
+    <section className='section-5 bg-light py-5'>
+  <div className="news">
+    <h2>
+      Company <span>News</span>
+    </h2>
+
+    <div className="news-container">
+      {newsItems.map((item, index) => (
+        <div
+          key={index}
+          className="news-card animate"
+          style={{ animationDelay: `${index * 0.2}s` }}
+        >
+          <img src={item.image} alt={item.title} />
+          <div className="news-overlay">
+            <div className="news-date" style={{ backgroundColor: item.color }}>
+              {item.date}
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+            <a href="#">
+              Read More <span>&#x203A;</span>
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+    </section>
+        
         </main>
 
-              <footer className="footer-section">
-      <div className="footer-content">
-        <Container>
-          <Row>
-            <Col md={8}>
-              <div className="footer-left">
-                <h5><strong>Head Quarter</strong><br />Jakarta Indonesia</h5>
-                <p>
-                  Pondok Indah Office Tower2<br />
-                  16th Floor, Suite 1603<br />
-                  Jl. Sultan Iskandar Muda Kav V-TA Jakarta 12310<br />
-                  - INDONESIA
-                </p>
-                <p>📞 +62 21 29705400</p>
-                <p>📠 +62 21 29705401</p>
-                <p>✉️ info@whsmaritime.com</p>
-              </div>
-            </Col>
-
-            <Col md={4} className="text-center">
-              <img
-                src="/images/ISO.png"
-                alt="RINA Certification"
-                className="rina-logo"
-              />
-              <p className="cert-label">CERTIFIED MANAGEMENT SYSTEM</p>
-              <p className="cert-iso">ISO 9001 · ISO 45001</p>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-
-      <div className="footer-wave">
-        <img src="/images/wave.svg" alt="Wave background" />
-      </div>
-    </footer>
+         <Footer />
         </>
     );
     };

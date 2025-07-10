@@ -5,26 +5,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 
-const Header = () => {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+const Header_ns= () => {
   return (
     <header>
+      <nonsticky>
       <Navbar
         expand="lg"
-        fixed="top"
-        onToggle={(expanded) => setMenuOpen(expanded)}
-        className={`navbar ${scrolled ? 'scrolled' : ''} ${menuOpen ? 'active' : ''}`}
-      >
+        fixed="top">
         <Container>
           <Navbar.Brand href="#home">
             <img src="/images/WHS Logo.png" alt="logo" height={55} />
@@ -49,8 +36,10 @@ const Header = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </nonsticky>
     </header>
+    
   );
 };
 
-export default Header;
+export default Header_ns;
