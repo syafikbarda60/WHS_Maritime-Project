@@ -55,7 +55,7 @@ body {
         color: #fff !important;
 
         &:hover {
-          background-color: darken($primary-color, 10%) !important;
+          background-color: color.adjust($primary-color,$lightness: 10%) !important;
         }
       }
     }
@@ -72,8 +72,8 @@ body {
   &:active {
     box-shadow: none;
     outline: none;
-    background-color: darken($primary-color, 10%);
-    border-color: darken($primary-color, 10%);
+    background-color: color.adjust($primary-color, $lightness: -10%);
+    border-color: color.adjust($primary-color,$lightness: 10%);
   }
 
   .navbar-toggler-icon {
@@ -318,3 +318,15 @@ body {
   }
 }
 
+
+
+//-------------------------------------------dashboard style------------------------------------------------------------------------------------------------//
+
+.dashboard{
+  .btn-link{
+    color: #d91d1d;
+    &:hover{
+      color: #2654d0;
+    }
+  }
+}

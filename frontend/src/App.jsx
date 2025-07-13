@@ -9,6 +9,9 @@ import './assets/css/style.scss';
 import './assets/css/home.scss';
 import Ourservice_I1 from './components/frontend/Ourservice_I1';
 import Login from './components/backend/Login';
+import { ToastContainer, toast } from 'react-toastify';
+import Dashboard from './components/backend/Dashboard';
+import RequireAuth from './components/common/RequireAuth';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +24,11 @@ function App() {
         <Route path='/about'element={<About/>}/>
         <Route path='/Iskandar 1'element={<Ourservice_I1/>}/>
         <Route path='/admin/login'element={<Login/>}/>
+        <Route path="/admin/dashboard" element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+          } />
       </Routes>
     </BrowserRouter>
     </>

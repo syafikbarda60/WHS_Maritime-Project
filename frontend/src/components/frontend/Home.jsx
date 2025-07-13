@@ -116,7 +116,7 @@
         <Carousel fade controls={false} indicators={false} interval={2500} pause={false}>
             {/* Slide 1 */}
             <Carousel.Item>
-            <div className="hero" style={{ backgroundImage: "url('/images/tb2.jpg')" }}>
+            <div className="hero" style={{ backgroundImage: "url('/images/whs iskandar.jpg')" }}>
                 <div className="overlay">
                 <div className="container-fluid">
                     <div className="hero-content text-center">
@@ -137,12 +137,12 @@
 
             {/* Slide 2 */}
             <Carousel.Item>
-            <div className="hero" style={{ backgroundImage: "url('/images/carousel2.jpg')" }}>
+            <div className="hero" style={{ backgroundImage: "url('/images/carousel3.jpg')" }}>
                 <div className="overlay">
                 <div className="container-fluid">
                     <div className="hero-content text-center">
                     <h1>MODERN <span style={{ color: '#d91d1d' }}>ASSETS</span></h1>
-                    <h3> Well<span style={{ color: '#d91d1d' }}> Integrated and Efficient</span></h3>
+                    <h3> Well Integrated and <span style={{ color: '#d91d1d' }}>Efficient</span></h3>
                     <p>Collaboration of heavy equipment and well-integrated support machinery, 
                         suitably modified for the operating environment, uniformly and systematically designed 
                         and laid out for ease of operation, along with appropriate Safety and Operating protocols and 
@@ -158,19 +158,44 @@
 
             {/* Slide 3 */}
             <Carousel.Item>
-            <div className="hero" style={{ backgroundImage: "url('/images/carousel3.jpg')" }}>
+            <div className="hero" style={{ backgroundImage: "url('/images/carousel2.jpg')" }}>
                 <div className="overlay">
                 <div className="container-fluid">
                     <div className="hero-content text-center">
-                    <h1>CUSTOMIZED <span style={{ color: '#d91d1d' }}>BLENDING</span></h1>
-                    <h3> Flexible <span style={{ color: '#d91d1d' }}> Options</span></h3>
-                    <p>Choose blending from 3 storage bins to achieve optimal product results.</p>
+                    <h1>Technologically <span style={{ color: '#d91d1d' }}>improved</span></h1>
+                    <h3> developing the best <span style={{ color: '#d91d1d' }}>technology</span></h3>
+                    <p>We offer relatively young, 
+                      well-designed and appointed equipment, with the most robust and 
+                      reliable techndlogy, and our goal is to grow to be a leader for technological 
+                      advánces in the area of logistics for offshore transshipment. Some of our add-on 
+                      features are belt scales, auto/mechanical sampler, metal detector, and metal separator 
+                      in order to deliver a clean product</p>
                     <Button variant="primary">Discover</Button>
                     </div>
                 </div>
                 </div>
             </div>
             </Carousel.Item>
+
+            <Carousel.Item>
+            <div className="hero" style={{ backgroundImage: "url('/images/SCREEN-HOOPER.jpg')" }}>
+                <div className="overlay">
+                <div className="container-fluid">
+                    <div className="hero-content text-center">
+                    <h1>Quality <span style={{ color: '#d91d1d' }}>Controlled</span></h1>
+                    <h3>Deliver a <span style={{ color: '#d91d1d' }}> quality product</span></h3>
+                    <p>We define quality Control as a process by which entities 
+                      comnbine inherent expertise and understanding of the entire operation
+                       coupled with advanced technology to maintain the quality of the end product: 
+                       our motto is to combine reliable technology with well managed processes, derived from a team of 
+                       highly motivated and competent personnel with the requisite knowledge, skill, and experience.</p>
+                    <Button variant="primary">Discover</Button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </Carousel.Item>
+
         </Carousel>
         </section>
 
