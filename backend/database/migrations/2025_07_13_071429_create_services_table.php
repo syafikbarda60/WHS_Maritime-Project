@@ -19,8 +19,9 @@ return new class extends Migration
             $table->text('content') -> nullable();
             $table->string('img') -> nullable();
             $table->integer('stats') -> default (1);
-            $table -> $table->timestamp('added_on')->nullable()->default(time());
+
         });
+        
     }
 
     /**

@@ -36,46 +36,55 @@ class ServiceController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-
-     public function store(Request $request)
-{
+    public function store(Request $request)
+    {
+       
+       
     $validator = Validator::make($request->all(), [
-        'title' => 'required|string|max:255',
-        'slug' => 'required|string|max:255|unique:services,slug',
-        'short_description' => 'nullable|string',
-        'content' => 'nullable|string',
-        'status' => 'nullable|in:0,1'
+        'title' => 'required',
+        'slug' => 'required|unique:services,slug',
+        'short_desc' => 'required',
+        'content' => 'required',
+        'stats' => 'required|numeric',
+        'img' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
     ]);
 
     if ($validator->fails()) {
         return response()->json([
             'status' => false,
             'errors' => $validator->errors()
-        ], 422);
+        ]);
+    }
+
+    $filename = null;
+
+    if ($request->hasFile('img')) {
+        $filename = $request->file('img')->store('services', 'public');
     }
 
     $model = new Service();
     $model->title = $request->title;
-    $model->slug = Str::slug($request->slug ?? $request->title);
-    $model->short_description = $request->short_description;
+    $model->slug = Str::slug($request->slug);
+    $model->short_desc = $request->short_desc;
     $model->content = $request->content;
-    $model->status = $request->status ?? 1;
+    $model->stats = $request->stats;
+    $model->img = $filename;
     $model->save();
 
     return response()->json([
         'status' => true,
-        'message' => 'Service added successfully.',
-        'data' => $model
+        'message' => 'Service added successfully.'
     ]);
-}
 
-
-    /*
-    public function store(Request $request)
-    {
-        $validator = Validator::make ($request -> all(), [
+       
+       
+        /* $validator = Validator::make ($request -> all(), [
             'title' => 'required',
             'slug' => 'required|unique:services,slug',
+            'short_desc' => 'required',
+            'content' => 'required',
+            'stats' => 'required|numeric',
+            'img' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         if ($validator -> fails()) {
@@ -85,12 +94,18 @@ class ServiceController extends Controller
             ]);
         }
 
+         $filename = null;
+
+    if ($request->hasFile('img')) {
+        $filename = $request->file('img')->store('services', 'public'); // <- simpan di storage/app/public/services
+
         $model = new Service(); // Buat objek layanan baru
         $model->title = $request->title; // Ambil judul dari request
         $model->slug = Str::slug($request->slug); // Buat slug yang bersih dari judul
-        $model->short_description = $request->short_description; // Ambil deskripsi singkat
+        $model->short_desc = $request->short_desc; // Ambil deskripsi singkat
         $model->content = $request->content; // Ambil konten lengkap
-        $model->status = $request->status; // Ambil status
+        $model->stats = $request->stats; // Ambil status
+        $model->img = $filename; // <- simpan nama file
         $model->save(); // Simpan ke database
 
     // 4. Beri Tahu Frontend Bahwa Berhasil
@@ -98,8 +113,9 @@ class ServiceController extends Controller
         'status' => true, // Beri tahu frontend bahwa sukses
         'message' => 'Service added successfully.' // Pesan sukses
     ]);
-    }
     */
+    }
+    
     /**
      * Display the specified resource.
      */
@@ -128,7 +144,18 @@ class ServiceController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Service $service)
-    {
-        //
+   {
+
+    if (!$service) {
+        return response()->json(['status' => false, 'message' => 'Service not found'], 404);
     }
+
+    if ($service->img && \Storage::exists('public/' . $service->img)) {
+        \Storage::delete('public/' . $service->img);
+    }
+
+    $service->delete();
+
+    return response()->json(['status' => true, 'message' => 'Service deleted']);
+}
 }

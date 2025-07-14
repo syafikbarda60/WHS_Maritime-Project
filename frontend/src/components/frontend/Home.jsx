@@ -82,7 +82,7 @@
   }, []);
 
 //---------------------------------------------------------------news-------------------------------------------------------------------------------------------------------------------
-  const newsItems = [
+ /* const newsItems = [
   {
     date: '11 May 2025',
     title: 'Bali Golf',
@@ -100,12 +100,41 @@
     color: '#457B9D',
   },
 ];
+*/
 
     const goTo = (i) => {
     setIndex(i);
     setFade(true);
     };
+
+    useEffect(() => {
+      const fetchServices = async () => {
+        const res = await fetch('http://localhost:8000/api/services');
+        const result = await res.json();
+        if (result.status) setServices(result.data);
+      };
+      fetchServices();
+    }, []);
  
+
+  const [newsItems,setNewsItems] = useState([]);
+
+  useEffect(() => {
+    const fetchNews = async () => {
+      try {
+        const res = await fetch('http://localhost:8000/api/services');
+        const result = await res.json();
+        if (result.status) {
+          setNewsItems(result.data);
+        }
+      } catch (err) {
+        console.error('Failed to fetch news:', err);
+      }
+    };
+
+    fetchNews();
+  }, []);
+
     return (
         <>
 
@@ -367,36 +396,40 @@
       </Container>
     </section>
     
-    <section className='section-5 bg-light py-5'>
+   <section className='section-5 bg-light py-5'>
   <div className="news">
     <h2>
       Company <span>News</span>
     </h2>
 
     <div className="news-container">
-      {newsItems.map((item, index) => (
-        <div
-          key={index}
-          className="news-card animate"
-          style={{ animationDelay: `${index * 0.2}s` }}
-        >
-          <img src={item.image} alt={item.title} />
-          <div className="news-overlay">
-            <div className="news-date" style={{ backgroundColor: item.color }}>
-              {item.date}
+      {newsItems.length === 0 ? (
+        <p>No news found.</p>
+      ) : (
+        newsItems.map((item, index) => (
+          <div
+            key={item.id}
+            className="news-card animate"
+            style={{ animationDelay: `${index * 0.2}s` }}
+          >
+            <img src={`http://localhost:8000/storage/${item.img}`} alt={item.title} />
+            <div className="news-overlay">
+              <div className="news-date" style={{ backgroundColor: '#d31c28' }}>
+                {new Date(item.created_at).toLocaleDateString()}
+              </div>
+              <h3>{item.title}</h3>
+              <p>{item.short_desc}</p>
+              <a href="#">
+                Read More <span>&#x203A;</span>
+              </a>
             </div>
-            <h3>{item.title}</h3>
-            <p>{item.description}</p>
-            <a href="#">
-              Read More <span>&#x203A;</span>
-            </a>
           </div>
-        </div>
-      ))}
+        ))
+      )}
     </div>
   </div>
+</section>
 
-    </section>
         
         </main>
 
