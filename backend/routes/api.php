@@ -14,18 +14,18 @@ Route::post('/Authenticate', [AuthController::class, 'authenticate']);
 //    return $request->user();
 //})->middleware('auth:sanctum');
 
- Route::post('/login', [AuthController::class, 'login']);
- Route::get('services',[ServiceController::class,'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('services', [ServiceController::class, 'index']);
 
 //Route::middleware(['middleware' => ['auth.sanctum']], function(){
-Route::middleware(['auth:sanctum'])->group(function (){
+Route::middleware(['auth:sanctum'])->group(function () {
     //protected routes
     Route::get('dashboard', [DashboardController::class, 'index']);
 
-    
-    Route::get('logout',[AuthController::class,'logout']);
-    Route::post('services',[ServiceController::class,'store']);
-   
+
+    Route::get('logout', [AuthController::class, 'logout']);
+    Route::post('services', [ServiceController::class, 'store']);
+
     Route::post('/services', [ServiceController::class, 'store']);
     Route::delete('services/{service}', [ServiceController::class, 'destroy']);
 

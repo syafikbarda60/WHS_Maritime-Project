@@ -17,7 +17,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $services = Service::orderBy('created_at', 'DESC')->get(); // Ambil semua layanan, urutkan dari yang terbaru
+        $services = Service::orderBy('created_at', 'DESC')->get(); 
 
         return response()->json([
         'status' => true, 
@@ -42,7 +42,6 @@ class ServiceController extends Controller
        
     $validator = Validator::make($request->all(), [
         'title' => 'required',
-        'slug' => 'required|unique:services,slug',
         'short_desc' => 'required',
         'content' => 'required',
         'stats' => 'required|numeric',
@@ -56,6 +55,12 @@ class ServiceController extends Controller
         ]);
     }
 
+    $slug = Str::slug($request->title);
+    $existing = Service::where('slug', $slug)->exists();
+    if ($existing) {
+    $slug .= '-' . uniqid();
+}
+
     $filename = null;
 
     if ($request->hasFile('img')) {
@@ -64,7 +69,7 @@ class ServiceController extends Controller
 
     $model = new Service();
     $model->title = $request->title;
-    $model->slug = Str::slug($request->slug);
+    $model->slug = $slug;
     $model->short_desc = $request->short_desc;
     $model->content = $request->content;
     $model->stats = $request->stats;

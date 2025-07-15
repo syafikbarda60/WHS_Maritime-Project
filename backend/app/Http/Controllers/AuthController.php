@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;       // ← WAJIB
+use Illuminate\Support\Facades\Auth; // ← WAJIB
 use Illuminate\Support\Facades\Validator; // ← WAJIB
 
 class AuthController extends Controller
@@ -13,13 +13,13 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'password' => 'required'
+            'password' => 'required',
         ]);
 
         if ($validator->fails()) {
             return response()->json([
                 'status' => false,
-                'errors' => $validator->errors()
+                'errors' => $validator->errors(),
             ]);
         }
 
@@ -36,14 +36,38 @@ class AuthController extends Controller
             return response()->json([
                 'status' => true,
                 'token' => $token,
-                'id' => Auth::user()->id
+                'id' => Auth::user()->id,
             ]);
         } else {
             return response()->json([
                 'status' => false,
-                'message' => "Either password or email is incorrect."
+                'message' => 'Either password or email is incorrect.',
             ]);
         }
+    }
+
+    public function login(Request $request)
+    {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
+            $user = Auth::user();
+            $token = $user->createToken('api-token')->plainTextToken;
+
+            return response()->json([
+                'status' => true,
+                'token' => $token,
+                'user' => $user,
+            ]);
+        }
+
+        return response()->json(
+            [
+                'status' => false,
+                'message' => 'Invalid credentials',
+            ],
+            401,
+        );
     }
 
     public function logout()
@@ -54,7 +78,7 @@ class AuthController extends Controller
 
         return response()->json([
             'status' => true,
-            'message' => 'Logout successfully.'
+            'message' => 'Logout successfully.',
         ]);
     }
 }

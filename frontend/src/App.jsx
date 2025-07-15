@@ -4,14 +4,18 @@ import viteLogo from '/vite.svg'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './components/frontend/Home';
-import About from './components/frontend/About';
+//import About from './components/frontend/About';
+
 import './assets/css/style.scss';
 import './assets/css/home.scss';
+import './assets/css/gallery.scss';
+
 import Ourservice_I1 from './components/frontend/Ourservice_I1';
 import Login from './components/backend/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import Dashboard from './components/backend/Dashboard';
 import RequireAuth from './components/common/RequireAuth';
+import Gallery from './components/frontend/Gallery';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +25,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/'element={<Home/>}/>
-        <Route path='/about'element={<About/>}/>
+        <Route path='/gallery'element={<Gallery/>}/>
         <Route path='/Iskandar 1'element={<Ourservice_I1/>}/>
         <Route path='/admin/login'element={<Login/>}/>
         <Route path="/admin/dashboard" element={

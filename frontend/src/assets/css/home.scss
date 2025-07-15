@@ -1,92 +1,88 @@
 @use "sass:color";
 
-.section-1{
-    width: 100%;
-    .hero{
-        position: relative;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+.section-1 {
+  width: 100%;
+  .hero {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-        height: 100vh; // Atau gunakan 100vh untuk fullscreen
-        width: 100vw;   // Lebar penuh layar
-        
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    height: 100vh;
+    width: 100vw;
 
-         .btn-primary{
-                width: 200px;
-                font-size: 20px;
-                position: absolute;
-                align-self: flex-start;
-                background-color: #d91d1d; // warna latar baru
-                border-color: #d91d1d;
-                bottom: 6rem;
-                left: 4rem;
-                border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-                &:hover {
-                   background-color: color.adjust(#d91d1d, $lightness: -10%);
-                    border-color: color.adjust(#d91d1d, $lightness: -10%);
-                    }
-                &:focus,
-                &:active {
-                    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
-            }
-         }
-        
-        .overlay{
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 100vh;
-            width: 100vw;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 0;
-       
-            display: flex
-        }
-        
-        .hero-content {
-        padding: 2rem;
-        border-radius: 12px;
-        max-width: 700px;
-        height: 400px;
-        margin: 0 auto;
-        margin-left: 20px;
-        margin-top: 150px;
-        color: #ffffff;
-        
+    .btn-primary {
+      width: 200px;
+      font-size: 20px;
+      position: absolute;
+      align-self: flex-start;
+      background-color: #d91d1d;
+      border-color: #d91d1d;
+      bottom: 6rem;
+      left: 4rem;
+      border-radius: 5px;
 
-        h1{
-            font-size: 4em;
-            text-align: left;
-        }
+      &:hover {
+        background-color: color.adjust(#d91d1d, $lightness: -10%);
+        border-color: color.adjust(#d91d1d, $lightness: -10%);
+      }
+      &:focus,
+      &:active {
+        box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.5);
+      }
+    }
 
-        h2{
-            font-size: 2.5em;
-            text-align: left;
-        }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 0;
 
-        h3{
-            font-size: 1.5em;
-            text-align: left;
-        }
+      display: flex;
+    }
 
-        p{
-            font-size: 1em;
-            text-align: left;
-        }
-     }
+    .hero-content {
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 700px;
+      height: 400px;
+      margin: 0 auto;
+      margin-left: 20px;
+      margin-top: 150px;
+      color: #ffffff;
 
+      h1 {
+        font-size: 4em;
+        text-align: left;
+      }
 
-}
+      h2 {
+        font-size: 2.5em;
+        text-align: left;
+      }
 
-.bg-light{
+      h3 {
+        font-size: 1.5em;
+        text-align: left;
+      }
+
+      p {
+        font-size: 1em;
+        text-align: left;
+      }
+    }
+  }
+
+  .bg-light {
     background-color: #d9c7c7;
-
-}
+  }
 }
 
 .section-2 {
@@ -181,9 +177,9 @@
   }
 }
 
-.section3{
-    min-height: 300px;
-    
+.section3 {
+  min-height: 300px;
+
   .about-text {
     h2 {
       font-weight: 700;
@@ -199,66 +195,65 @@
 
   .about-video {
     .video-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9; // buat rasio 16:9 yang konsisten
-    overflow: hidden;
-
-    video {
+      position: relative;
       width: 100%;
-      height: 100%;
-      object-fit: cover; // atau contain jika ingin seluruh video terlihat
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-    }
-  
-}
+      aspect-ratio: 16 / 9; // buat rasio 16:9 yang konsisten
+      overflow: hidden;
 
-    .text-carousel-container {
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; // atau contain jika ingin seluruh video terlihat
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+
+  .text-carousel-container {
     text-align: center;
     padding: 40px 20px;
     background: #ffffff;
-    height:370px;
+    height: 370px;
     position: relative;
     display: flex;
-    }
+  }
 
-    .text-content {
+  .text-content {
     transition: all 1.5s ease-in-out;
-    }
+  }
 
-    .text-content.fade-in {
+  .text-content.fade-in {
     opacity: 1;
     transform: translateX(0);
     transition: opacity 0.5s ease-in, transform 0.5s ease-in;
-    }
+  }
 
-    .text-content.fade-out {
+  .text-content.fade-out {
     opacity: 0;
     transform: translateX(20px);
     transition: opacity 0.5s ease-in, transform 0.5s ease-in;
-    }
+  }
 
-    .text-content h2 {
+  .text-content h2 {
     font-size: 2rem;
     font-weight: 700;
     color: #222;
     text-align: left;
-    }
+  }
 
-    .text-content p {
+  .text-content p {
     font-size: 1rem;
     margin-top: 10px;
     color: #666;
     text-align: left;
-    }
+  }
 
-    .indicators {
+  .indicators {
     margin-top: 20px;
-    }
+  }
 
-    .indicators button {
+  .indicators button {
     width: 8px;
     height: 8px;
     margin: 0 5px;
@@ -267,94 +262,90 @@
     background-color: #ccc;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    }
+  }
 
-    .indicators button.active {
+  .indicators button.active {
     background-color: #d91d1d;
-    }
+  }
+}
 
-    }
+.section-4 {
+  min-width: 100vw;
 
-    .section-4{
-        min-width: 100vw;
-
-    h1 {
+  h1 {
     font-size: 3rem;
     font-weight: bold;
-    }
+  }
 
-    p {
+  p {
     font-size: 1rem;
     color: #555;
     text-align: justify;
-    }
+  }
 
-    .image-wrapper {
+  .image-wrapper {
     position: relative;
     overflow: hidden;
     border-radius: 8px;
-    }
+  }
 
-    .blue-box {
+  .blue-box {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 100%;
     height: 100%;
-    background-color: #3B82F6; // Biru
+    background-color: #3b82f6; // Biru
     border-radius: 8px;
     z-index: 1;
-    }
+  }
 
-    .image-wrapper img {
+  .image-wrapper img {
     display: block;
     width: 100%;
     height: auto;
-    }
+  }
+}
 
-    }
-
-
-
-    .section-5{
-        .news{
-        padding: 60px 40px;
-        text-align: left;
+.section-5 {
+  .news {
+    padding: 60px 40px;
+    text-align: left;
 
     h2 {
-        text-align: center;
-        font-size: 2.8rem;
-        font-weight: bold;
-        margin-bottom: 50px;
-        color: #000;
+      text-align: center;
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 50px;
+      color: #000;
 
-        span {
-        color: #CC433C;
-        }
+      span {
+        color: #cc433c;
+      }
     }
 
     .news-container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 60px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 60px;
     }
 
     .news-card {
-        position: relative;
-        width: 550px;
-        height: 360px;
-        
-        border-radius: 20px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
-        transition: transform 0.2s ease;
-        background-color: #fff;
+      position: relative;
+      width: 550px;
+      height: 360px;
 
-        &:hover {
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.12);
+      transition: transform 0.2s ease;
+      background-color: #fff;
+
+      &:hover {
         transform: scale(1.05);
-        }
+      }
 
-        img {
+      img {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -363,9 +354,9 @@
         left: 0;
         z-index: 1;
         border-radius: 10px;
-        }
+      }
 
-        .news-overlay {
+      .news-overlay {
         position: absolute;
         bottom: -40px;
         left: 30px;
@@ -378,49 +369,48 @@
         text-align: left;
 
         .news-card {
-        padding-bottom: 90000px; // ⬅️ Biar ruang buat overlay keluar
+          padding-bottom: 90000px; // ⬅️ Biar ruang buat overlay keluar
         }
 
-
         .news-date {
-            display: inline-block;
-            background-color: #CC433C; // default, bisa override
-            color: white;
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-bottom: 10px;
+          display: inline-block;
+          background-color: #cc433c; // default, bisa override
+          color: white;
+          padding: 6px 12px;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          font-weight: 500;
+          margin-bottom: 10px;
         }
 
         h3 {
-            font-size: 2rem;
-            font-weight: 700;
-            margin: 0 0 10px 0;
+          font-size: 2rem;
+          font-weight: 700;
+          margin: 0 0 10px 0;
         }
 
         p {
-            font-size: 1rem;
-            color: #000000;
-            margin-bottom: 15px;
-            margin: 0;
+          font-size: 1rem;
+          color: #000000;
+          margin-bottom: 15px;
+          margin: 0;
         }
 
         a {
-            display: inline-flex;
-            align-items: center;
-            color: #000000;
-            font-weight: 500;
-            font-size: 0.9rem;
-            text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          color: #000000;
+          font-weight: 500;
+          font-size: 0.9rem;
+          text-decoration: none;
 
-            span {
+          span {
             font-size: 1rem;
             margin-left: 4px;
-            }
+          }
 
-            &:hover {
-            color: #CC433C;
+          &:hover {
+            color: #cc433c;
           }
         }
       }

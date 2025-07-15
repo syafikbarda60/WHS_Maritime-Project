@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import Footer from '@components/frontend/pages/Footer';
-import Header_ns from '@components/frontend/pages/Header_ns';
-import { AuthContext } from '@components/backend/context/Auth';
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Footer from "@components/frontend/pages/Footer";
+import Header_ns from "@components/frontend/pages/Header_ns";
+import { AuthContext } from "@components/backend/context/Auth";
 
 const Dashboard = () => {
   const { logout } = useContext(AuthContext);
@@ -11,23 +11,23 @@ const Dashboard = () => {
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [formData, setFormData] = useState({
-    title: '',
-    slug: '',
-    short_desc: '',
-    content: '',
+    title: "",
+    slug: "",
+    short_desc: "",
+    content: "",
     stats: 0,
     img: null,
   });
 
-  const token = JSON.parse(localStorage.getItem('userInfo'))?.token;
+  const token = JSON.parse(localStorage.getItem("userInfo"))?.token;
 
   // Fetch Services
   const fetchServices = async () => {
     try {
-      const res = await fetch('http://localhost:8000/api/services', {
+      const res = await fetch("http://localhost:8000/api/services", {
         headers: {
           Authorization: `Bearer ${token}`,
-          Accept: 'application/json',
+          Accept: "application/json",
         },
       });
 
@@ -46,12 +46,12 @@ const Dashboard = () => {
 
   const handleLogout = () => {
     logout();
-    navigate('/admin/login');
+    navigate("/admin/login");
   };
 
   const handleChange = (e) => {
     const { name, value, files } = e.target;
-    if (name === 'img') {
+    if (name === "img") {
       setFormData({ ...formData, img: files[0] });
     } else {
       setFormData({ ...formData, [name]: value });
@@ -66,8 +66,8 @@ const Dashboard = () => {
     }
 
     try {
-      const res = await fetch('http://localhost:8000/api/services', {
-        method: 'POST',
+      const res = await fetch("http://localhost:8000/api/services", {
+        method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -76,18 +76,18 @@ const Dashboard = () => {
 
       const result = await res.json();
       if (result.status) {
-        alert('Service added');
+        alert("Service added");
         setFormData({
-          title: '',
-          slug: '',
-          short_desc: '',
-          content: '',
+          title: "",
+          slug: "",
+          short_desc: "",
+          content: "",
           stats: 0,
           img: null,
         });
         fetchServices();
       } else {
-        alert('Failed to add service');
+        alert("Failed to add service");
       }
     } catch (err) {
       console.error(err);
@@ -95,10 +95,10 @@ const Dashboard = () => {
   };
 
   const deleteService = async (id) => {
-    if (!window.confirm('Delete this service?')) return;
+    if (!window.confirm("Delete this service?")) return;
     try {
       const res = await fetch(`http://localhost:8000/api/services/${id}`, {
-        method: 'DELETE',
+        method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -115,7 +115,7 @@ const Dashboard = () => {
   return (
     <>
       <Header_ns />
-      <main style={{ paddingTop: '80px' }}>
+      <main style={{ paddingTop: "80px" }}>
         <div className="container my-5">
           <div className="row">
             <div className="col-md-3">
@@ -123,18 +123,22 @@ const Dashboard = () => {
                 <div className="card-body">
                   <h4 className="mb-4">Sidebar</h4>
                   <ul className="list-group list-group-flush">
-                    <li className="list-group-item p-0 mb-2">
+                    {/*<li className="list-group-item p-0 mb-2">
                       <a href="#" className="btn btn-link text-start">
                         Dashboard
                       </a>
-                    </li>
-                    <li className="list-group-item p-0 mb-2">
+                    </li>*/}
+                    
+                    {/*<li className="list-group-item p-0 mb-2">
                       <a href="#" className="btn btn-link text-start">
                         News
                       </a>
-                    </li>
+                    </li>*/}
                     <li className="list-group-item p-0">
-                      <button className="btn btn-danger w-100" onClick={handleLogout}>
+                      <button
+                        className="btn btn-danger w-100"
+                        onClick={handleLogout}
+                      >
                         Logout
                       </button>
                     </li>
@@ -159,6 +163,7 @@ const Dashboard = () => {
                         required
                       />
                     </div>
+                    {/*  
                     <div className="col-md-6 mb-2">
                       <label>Slug</label>
                       <input
@@ -170,6 +175,7 @@ const Dashboard = () => {
                         required
                       />
                     </div>
+                     */}
                     <div className="col-12 mb-2">
                       <label>Short Description</label>
                       <textarea
@@ -191,7 +197,12 @@ const Dashboard = () => {
                     </div>
                     <div className="col-md-6 mb-2">
                       <label>Image</label>
-                      <input type="file" name="img" onChange={handleChange} className="form-control" />
+                      <input
+                        type="file"
+                        name="img"
+                        onChange={handleChange}
+                        className="form-control"
+                      />
                     </div>
                     <div className="col-md-6 mb-2">
                       <label>Stats</label>
@@ -232,9 +243,14 @@ const Dashboard = () => {
                             <h5 className="card-title">{s.title}</h5>
                             <p className="card-text">{s.short_desc}</p>
                             <p className="card-text">
-                              <small className="text-muted">Views: {s.stats}</small>
+                              <small className="text-muted">
+                                Views: {s.stats}
+                              </small>
                             </p>
-                            <button className="btn btn-danger btn-sm" onClick={() => deleteService(s.id)}>
+                            <button
+                              className="btn btn-danger btn-sm"
+                              onClick={() => deleteService(s.id)}
+                            >
                               Delete
                             </button>
                           </div>
