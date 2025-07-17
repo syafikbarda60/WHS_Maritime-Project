@@ -8,10 +8,10 @@ import Header_ns from '@components/frontend/pages/Header_ns';
 
 // src/assets/css/main.scss
 const images = [
-  { src: '/images/metaldetector.jpg', label: 'Metal Detector' },
+  { src: '/images/carousel2.jpg', label: 'Metal Detector' },
   { src: '/images/whs iskandar.jpg', label: 'Floating Terminal' },
   { src: '/images/floatingcrane.jpg', label: 'Floating Crane' },
-  { src: '/images/TBprime.jpg', label: 'TB PRIME' },
+  { src: '/images/tb2.jpg', label: 'TB PRIME' },
 ];
 
 const Gallery = () => {
@@ -26,7 +26,7 @@ const Gallery = () => {
     <>
       <Header_ns />
 
-      <div className="gallery">
+      <div className="gallery bg-light">
         {images.map((img, index) => (
           <div className="image-card" key={index} onClick={() => openFullscreen(index)}>
             <img className="image" src={img.src} alt={img.label} />

@@ -242,8 +242,8 @@ const Home = () => {
                   <div className="container-fluid">
                     <div className="hero-content text-center">
                       <h1>
-                        Technologically{" "}
-                        <span style={{ color: "#d91d1d" }}>improved</span>
+                        TECHNOLOGICALLY <br/>
+                        <span style={{ color: "#d91d1d" }}>IMPROVED</span>
                       </h1>
                       <h3>
                         {" "}
@@ -284,8 +284,8 @@ const Home = () => {
                   <div className="container-fluid">
                     <div className="hero-content text-center">
                       <h1>
-                        Quality{" "}
-                        <span style={{ color: "#d91d1d" }}>Controlled</span>
+                        QUALITTY
+                        <span style={{ color: "#d91d1d" }}>CONTROLLED</span>
                       </h1>
                       <h3>
                         Deliver a{" "}

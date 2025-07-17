@@ -9,13 +9,27 @@ import Home from './components/frontend/Home';
 import './assets/css/style.scss';
 import './assets/css/home.scss';
 import './assets/css/gallery.scss';
+import './assets/css/news.scss'
+import './assets/css/contactUs.scss'
+import './assets/css/FloatingTerminal.scss'
+import './assets/css/oceanFlow1.scss'
+import './assets/css/oceanFlow3.scss'
+import './assets/css/padmasari.scss'
+import './assets/css/tbSeries.scss'
 
-import Ourservice_I1 from './components/frontend/Ourservice_I1';
+//import Ourservice_I1 from './components/frontend/Ourservice_I1';
 import Login from './components/backend/Login';
 import { ToastContainer, toast } from 'react-toastify';
 import Dashboard from './components/backend/Dashboard';
 import RequireAuth from './components/common/RequireAuth';
 import Gallery from './components/frontend/Gallery';
+import News from './components/frontend/News';
+import ContactUs from './components/frontend/ContactUs';
+import FloatingTerminal from './components/frontend/FloatingTerminal';
+import OceanFlow3 from './components/frontend/OceanFlow3';
+import OceanFlow1 from './components/frontend/OceanFlow1'
+import Padmasari from './components/frontend/Padmasari';
+import TBSeries from './components/frontend/TBSeries';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -26,8 +40,16 @@ function App() {
       <Routes>
         <Route path='/'element={<Home/>}/>
         <Route path='/gallery'element={<Gallery/>}/>
-        <Route path='/Iskandar 1'element={<Ourservice_I1/>}/>
+        {/*<Route path='/Iskandar 1'element={<Ourservice_I1/>}/> */}
+        <Route path='/news/:id' element={<News/>} />
         <Route path='/admin/login'element={<Login/>}/>
+        <Route path='/contact_us'element={<ContactUs/>}/>
+         <Route path="/floatingterminal" element={<FloatingTerminal />} />
+        <Route path="/oceanFlow1" element={<OceanFlow1 />} />
+        <Route path="/oceanFlow3" element={<OceanFlow3 />} />
+        <Route path="/floatingTerminal" element={<FloatingTerminal />} />
+        <Route path="/padmasari" element={<Padmasari />} />
+        <Route path="/tbSeries" element={<TBSeries />} />
         <Route path="/admin/dashboard" element={
           <RequireAuth>
             <Dashboard />
