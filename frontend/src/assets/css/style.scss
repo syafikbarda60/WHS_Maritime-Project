@@ -3,7 +3,7 @@ $secondary-color: #2654d0;
 $text-color: #000000;
 
 @use "sass:color";
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
   font-family: "Poppins", sans-serif;
@@ -13,319 +13,366 @@ body {
   overflow-x: hidden;
 }
 
-.nosticky{
-    .navbar {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 1rem;
-  background-color: $primary-color;
-
-  .header-button {
-    text-transform: uppercase;
-    color: #fff !important;
-    font-weight: 500;
-    margin-left: 20px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: #ffadad !important; // kuning saat hover
-    }
-  }
-
-  &.scrolled {
+.nosticky {
+  .navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
     background-color: $primary-color;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
     .nav-link {
+      text-transform: uppercase;
       color: #fff !important;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffadad !important;
+      }
+    }
+
+    .header-button {
+      text-transform: uppercase;
+      color: #fff !important;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffadad !important; // kuning saat hover
+      }
     }
   }
 
-  &.active {
+  // Toggler (hamburger) styles
+  .navbar-toggler {
     background-color: $primary-color;
+    border-color: $primary-color;
+    transition: all 0.3s ease;
+
+    &:focus,
+    &:active {
+      box-shadow: none;
+      outline: none;
+      background-color: color.adjust($primary-color, $lightness: -10%);
+      border-color: color.adjust($primary-color, $lightness: 10%);
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+
+  // animasi slide down (optional)
+  @keyframes slidedown {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0;
+    }
+  }
+
+  // pastikan .active tidak tertimpa di layar besar
+  @media (min-width: 992px) {
+    .navbar.active {
+      background-color: $primary-color !important;
+    }
+  }
+}
+
+.scrolled {
+  .navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    background-color: transparent;
 
     .nav-link {
+      text-transform: uppercase;
       color: #fff !important;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #ffadad !important;
+      }
     }
 
-    .dropdown-menu {
-      background-color: rgba(31, 73, 181, 0.9);
-      border: none;
+    &.scrolled {
+      background-color:#d91d1d;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-      .dropdown-item {
-        color: #fff !important;
+      .nav-link {
+        color: #ffffff !important;
+      }
+    }
 
-        &:hover {
-          background-color: color.adjust($primary-color,$lightness: 10%) !important;
+    &.active {
+      background-color: #d91d1d;
+
+      .nav-link {
+        color: #ffffff !important;
+      }
+
+      .dropdown-menu {
+        background-color: rgba(31, 73, 181, 0.9);
+        border: none;
+
+        .dropdown-item {
+          color: #fff !important;
+
+          &:hover {
+            background-color: $primary-color !important;
+          }
         }
       }
     }
   }
-}
 
-// Toggler (hamburger) styles
-.navbar-toggler {
-  background-color: $primary-color;
-  border-color: $primary-color;
-  transition: all 0.3s ease;
+  .navbar-toggler {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    transition: all 0.3s ease;
 
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-    background-color: color.adjust($primary-color, $lightness: -10%);
-    border-color: color.adjust($primary-color,$lightness: 10%);
-  }
+    &:focus,
+    &:active {
+      box-shadow: none;
+      outline: none;
+      background-color: color.adjust(#ff0000, $lightness: -10%);
+      border-color: color.adjust(#ff0000, $lightness: -10%);
+    }
 
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-}
-
-// animasi slide down (optional)
-@keyframes slidedown {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-// pastikan .active tidak tertimpa di layar besar
-@media (min-width: 992px) {
-  .navbar.active {
-    background-color: $primary-color !important;
-  }
-}
-}
-
-.navbar {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 1rem;
-  background-color: transparent;
-
-  .nav-link {
-    text-transform: uppercase;
-    color: #fff !important;
-    font-weight: 500;
-    margin-left: 20px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: $primary-color !important;
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
   }
 
-  &.scrolled {
-    background-color: #c51c1c;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  @keyframes slidedown {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0;
+    }
+  }
+
+  // Jika perlu pastikan tidak menimpa .active di layar besar
+  @media (min-width: 992px) {
+    .navbar.active {
+      background-color: transparent !important;
+    }
+  }
+
+  .navbar {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    padding: 1rem;
+    background-color: transparent;
 
     .nav-link {
-      color: #ffffff !important;
+      text-transform: uppercase;
+      color: #fff !important;
+      font-weight: 500;
+      margin-left: 20px;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $primary-color !important;
+      }
     }
-  }
 
-  &.active {
-    background-color: #c51c1c;
+    &.scrolled {
+      background-color: #c51c1c;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
-    .nav-link {
-      color: #ffffff !important;
+      .nav-link {
+        color: #ffffff !important;
+      }
     }
 
-    .dropdown-menu {
-      background-color: rgba(31, 73, 181, 0.9);
-      border: none;
+    &.active {
+      background-color: #c51c1c;
 
-      .dropdown-item {
-        color: #fff !important;
+      .nav-link {
+        color: #ffffff !important;
+      }
 
-        &:hover {
-          background-color: $primary-color !important;
+      .dropdown-menu {
+        background-color: rgba(31, 73, 181, 0.9);
+        border: none;
+
+        .dropdown-item {
+          color: #fff !important;
+
+          &:hover {
+            background-color: $primary-color !important;
+          }
         }
       }
     }
   }
-}
 
-.navbar-toggler {
-  background-color: #ff0000;
-  border-color: #ff0000;
-  transition: all 0.3s ease;
+  .navbar-toggler {
+    background-color: #ff0000;
+    border-color: #ff0000;
+    transition: all 0.3s ease;
 
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-    background-color: color.adjust(#ff0000, $lightness: -10%);
-    border-color: color.adjust(#ff0000, $lightness: -10%);
-  }
+    &:focus,
+    &:active {
+      box-shadow: none;
+      outline: none;
+      background-color: color.adjust(#ff0000, $lightness: -10%);
+      border-color: color.adjust(#ff0000, $lightness: -10%);
+    }
 
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-}
-
-@keyframes slidedown {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-// Jika perlu pastikan tidak menimpa .active di layar besar
-@media (min-width: 992px) {
-  .navbar.active {
-    background-color: transparent !important;
-  }
-}
-
-
-.navbar {
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-  padding: 1rem;
-  background-color: transparent;
-
-  .nav-link {
-    text-transform: uppercase;
-    color: #fff !important;
-    font-weight: 500;
-    margin-left: 20px;
-    transition: color 0.3s ease;
-
-    &:hover {
-      color: $primary-color !important;
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
   }
 
-  &.scrolled {
-    background-color: #c51c1c;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-
-    .nav-link {
-      color: #ffffff !important;
+  @keyframes slidedown {
+    from {
+      top: -100px;
+    }
+    to {
+      top: 0;
     }
   }
 
-  &.active {
-    background-color: #c51c1c;
-
-    .nav-link {
-      color: #ffffff !important;
+  // Jika perlu pastikan tidak menimpa .active di layar besar
+  @media (min-width: 992px) {
+    .navbar.active {
+      background-color: transparent !important;
     }
-
-    .dropdown-menu {
-      background-color: rgba(31, 73, 181, 0.9);
-      border: none;
-
-      .dropdown-item {
-        color: #fff !important;
-
-        &:hover {
-          background-color: $primary-color !important;
-        }
-      }
-    }
-  }
-}
-
-.navbar-toggler {
-  background-color: #ff0000;
-  border-color: #ff0000;
-  transition: all 0.3s ease;
-
-  &:focus,
-  &:active {
-    box-shadow: none;
-    outline: none;
-    background-color: color.adjust(#ff0000, $lightness: -10%);
-    border-color: color.adjust(#ff0000, $lightness: -10%);
-  }
-
-  .navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-  }
-}
-
-@keyframes slidedown {
-  from {
-    top: -100px;
-  }
-  to {
-    top: 0;
-  }
-}
-
-// Jika perlu pastikan tidak menimpa .active di layar besar
-@media (min-width: 992px) {
-  .navbar.active {
-    background-color: transparent !important;
   }
 }
 
 .footer-section {
-  background-color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   position: relative;
   overflow: hidden;
-  padding-top: 2rem;
-  min-width: 100vw;
+  width: 100vw;
   
+  font-family: "Poppins", sans-serif;
+
   .footer-content {
-    padding-bottom: 4rem;
+    padding-bottom: 1rem;
+    padding-top: 2rem;
 
-    h5 {
-      font-size: 1.2rem;
-      margin-bottom: 1rem;
+    .footer-left,
+    .footer-center,
+    .footer-right {
+      text-align: left;
+
+      h5 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: #000000;
+        text-align: left;
+      }
+
+      p {
+        margin: 0.2rem 0;
+        font-size: 1rem;
+        color: #000000;
+      }
     }
 
-    p {
-      margin: 0.2rem 0;
-      font-size: 0.95rem;
-      color: #000;
+    .footer-center {
+      text-align: center;
+
+      .footer-link {
+        cursor: pointer;
+        color: #000000;
+        margin: 0.6rem 0;
+        display: block;
+        font-size: 1rem;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+        text-align:left;
+
+        &:hover {
+          color: #d13731;
+        }
+      }
     }
 
-    .rina-logo {
-      max-width: 300px;
-      margin-bottom: 0.5rem;
-      margin-top: 20px;
+    .footer-right {
+      text-align: right;
+
+      .rina-logo {
+        max-width: 250px;
+        margin-bottom: 0.5rem;
+      }
+
+      .cert-label {
+        font-weight: 600;
+        font-size: 1rem;
+        margin-bottom: 0.2rem;
+      }
+
+      .cert-iso {
+        font-weight: bold;
+        color: #00a3e0;
+        font-size: 1.1rem;
+      }
     }
 
-    .cert-label {
-      font-weight: 600;
-      font-size: 0.95rem;
-      margin-bottom: 0.2rem;
+    .brosure{
+      text-align: left;
+      .btn-link{
+        color: #00000098;
+        margin-top: 20px;
+        font-size: medium;
+        
+        &:hover{
+          color: #d91d1d;
+        }
+
+      }
     }
 
-    .cert-iso {
-      font-weight: bold;
-      color: #00a3e0;
-      font-size: 1rem;
+    .Administration{
+      .btn-link{
+        color: #00000098;
+        position: sticky;
+        margin-top: 90px;
+        font-size: medium;
+        text-align: left;
+
+        &:hover{
+            color: #d91d1d;
+        }
+      
+      }
     }
   }
 
   .footer-wave {
-    position: relative; // Ubah dari absolute ke relative
-  margin-top: -15px;
-  z-index: 1;
+    position: relative;
+    margin-top: -15px;
+    z-index: 1;
 
-  img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-top: 20px;
-  }
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      margin-top: 20px;
+    }
   }
 }
+
+
+  
 
 
 
 //-------------------------------------------dashboard style------------------------------------------------------------------------------------------------//
 
-.dashboard{
-  .btn-link{
+.dashboard {
+  .btn-link {
     color: #d91d1d;
-    &:hover{
+    &:hover {
       color: #2654d0;
     }
   }

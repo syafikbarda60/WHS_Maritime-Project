@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
+//import Header from "@components/frontend/pages/Header";
+import Footer from "@components/frontend/pages/Footer";
+import Header_ns from "@components/frontend/pages/Header_ns";
 
 const TB = () => {
   const [showArrow, setShowArrow] = useState(false);
@@ -27,15 +30,19 @@ const TB = () => {
   }, [lastScrollY]);
 
   return (
+    <>
+    <Header_ns />
+    <main>
     <div className="padmasari">
       <img src="/Assets/tbseries-2.jpg" alt="TB Series" className="image-13" />
 
-      <div className="effect-background">
-        <img
+      <img
           src="/Assets/tbseries-nobg.png"
           alt="Kapal"
           className={`padmasari-img ${isImageVisible ? "fade-in" : "fade-out"}`}
         />
+        
+      <div className="effect-background">
 
         <h1
           className={`padmasari-title ${
@@ -273,6 +280,9 @@ const TB = () => {
         </Carousel>
       </div>
     </div>
+    </main>
+   <Footer />
+    </>
   );
 };
 

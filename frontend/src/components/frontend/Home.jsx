@@ -14,9 +14,11 @@ import Col from "react-bootstrap/Col";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 import "animate.css";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "@components/frontend/pages/Header";
 import Footer from "@components/frontend/pages/Footer";
+import { FiTable } from "react-icons/fi";
 //import Header_ns from '@components/frontend/pages/Header_ns';
 
 //----------------------------------------------header effect------------------------------------------------------------------------------------------------------------------
@@ -129,6 +131,12 @@ const Home = () => {
     fetchNews();
   }, []);
 
+  //--------------------------------------------Our Service--------------------------------------------------------
+  const navigate = useNavigate();
+
+  const goto = (path) => {
+    navigate(path);
+  };
   return (
     <>
       <Header />
@@ -242,13 +250,13 @@ const Home = () => {
                   <div className="container-fluid">
                     <div className="hero-content text-center">
                       <h1>
-                        TECHNOLOGICALLY <br/>
+                        TECHNOLOGICALLY <br />
                         <span style={{ color: "#d91d1d" }}>IMPROVED</span>
                       </h1>
                       <h3>
                         {" "}
-                        developing the best{" "}
-                        <span style={{ color: "#d91d1d" }}>technology</span>
+                        Developing the Best{" "}
+                        <span style={{ color: "#d91d1d" }}>Technology</span>
                       </h3>
                       <p>
                         We offer relatively young, well-designed and appointed
@@ -291,7 +299,7 @@ const Home = () => {
                         Deliver a{" "}
                         <span style={{ color: "#d91d1d" }}>
                           {" "}
-                          quality product
+                          Quality Product
                         </span>
                       </h3>
                       <p>
@@ -377,7 +385,7 @@ const Home = () => {
 
                   {/* Gambar utama */}
                   <img
-                    src="/images/tb2.jpg"
+                    src="/images/whs iskandar.jpg"
                     alt="about"
                     style={{
                       width: "100%",
@@ -421,7 +429,7 @@ const Home = () => {
               <div className="col-md-4 mb-4">
                 <div
                   className="custom-card"
-                  style={{ backgroundImage: "url(images/tb2.jpg)" }}
+                  style={{ backgroundImage: "url(images/floatingcrane.jpg)" }}
                 >
                   <div className="overlay">
                     <h3 className="title">Floating Storage Terminal</h3>
@@ -433,7 +441,12 @@ const Home = () => {
                       perform homogenous blending without compromising our high
                       loading rate.
                     </p>
-                    <Button variant="danger">Learn More</Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => goto("/floatingTerminal")}
+                    >
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -454,7 +467,12 @@ const Home = () => {
                       material from the barge to mother vessel with a sustained
                       high loading rate.
                     </p>
-                    <Button variant="danger">Learn More</Button>
+                    <Button
+                      variant="danger"
+                      onClick={() => goto("/oceanFlow1")}
+                    >
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -462,7 +480,7 @@ const Home = () => {
               <div className="col-md-4 mb-4">
                 <div
                   className="custom-card"
-                  style={{ backgroundImage: "url(images/carousel2.jpg)" }}
+                  style={{ backgroundImage: "url(images/tb2.jpg)" }}
                 >
                   <div className="overlay">
                     <h3 className="title">TUG AND BARGE</h3>
@@ -475,7 +493,9 @@ const Home = () => {
                       Voyage as well as Time Charter basis to meet its customers
                       requirements.
                     </p>
-                    <Button variant="danger">Explore</Button>
+                    <Button variant="danger" onClick={() => goto("/tbSeries")}>
+                      Learn More
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -524,8 +544,12 @@ const Home = () => {
                   <Container>
                     <video
                       controls
-                      poster="/images/tb2.jpg"
-                      style={{ width: "100%", borderRadius: "12px" }}
+                      poster="/images/whs iskandar.jpg"
+                      style={{
+                        width: "100%",
+                        borderRadius: "12px",
+                        aspectRatio: FiTable,
+                      }}
                     >
                       <source
                         src="https://whsmaritime.com/wp-content/uploads/video/PNTS Company Profile.mp4"
@@ -568,9 +592,9 @@ const Home = () => {
                       </div>
                       <h3>{item.title}</h3>
                       <p>{item.short_desc}</p>
-                      <a href="#">
+                      <Link to={`/news/${item.id}`}>
                         Read More <span>&#x203A;</span>
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 ))

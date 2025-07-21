@@ -125,14 +125,10 @@
   line-height: 1.6;
 }
 
-.oc-1,
-.oc-2,
-.oc-3 {
+.img{
   position: absolute;
   object-fit: cover;
-}
-
-.oc-1 {
+  .oc-1 {
   top: 230px;
   left: 70px;
   width: 264px;
@@ -152,6 +148,10 @@
   width: 273px;
   height: 334px;
 }
+}
+
+
+
 
 .specification-title-outside {
   width: 5%;
@@ -217,4 +217,5 @@
 .carousel-wrapper {
   width: 80vw;
   margin: auto;
+  margin-top: auto;
 }

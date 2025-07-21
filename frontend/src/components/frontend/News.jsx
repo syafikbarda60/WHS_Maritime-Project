@@ -10,6 +10,11 @@ const News = () => {
 
   const { id } = useParams();
 
+  const capitalizeFirst = (text) => {
+    if (!text) return '';
+    return text.charAt(0).toUpperCase() + text.slice(1);
+  };
+
   useEffect(() => {
     const fetchNews = async () => {
       try {
@@ -61,14 +66,27 @@ const News = () => {
               </Carousel>
             </div>
 
-            <div className="content">
+             <div className="content">
               <p>{newsItem.short_desc}</p>
-              <p>
-                (Tambahkan field `description` dari database jika tersedia untuk
-                isi lengkapnya.)
-              </p>
-            </div>
 
+              {/* Konten dengan format otomatis */}
+              {newsItem.content.includes("<") ? (
+                <div
+                  className="formatted-content"
+                  dangerouslySetInnerHTML={{ __html: newsItem.content }}
+                />
+              ) : (
+                newsItem.content
+                  .split(/\n\s*\n/) // pisah per 2 newline jadi paragraf
+                  .map((para, idx) => (
+                    <p key={idx} className="paragraph">
+                      {capitalizeFirst(para.trim())}
+                    </p>
+                  ))
+              )}
+            </div>
+            </article>
+{/*   
             <section className="comments">
               <h3>0 Comments</h3>
               <div className="comment">Belum ada komentar.</div>
@@ -83,7 +101,7 @@ const News = () => {
                 <button type="submit">Submit</button>
               </form>
             </section>
-          </article>
+          
 
           <aside className="sidebar">
             <div className="follow-us">
@@ -114,6 +132,7 @@ const News = () => {
               <button>Category 2</button>
             </div>
           </aside>
+          */}
         </div>
       </main>
       <Footer />

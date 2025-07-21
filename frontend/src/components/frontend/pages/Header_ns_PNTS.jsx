@@ -15,7 +15,7 @@ const Header_ns = () => {
         <Navbar expand="lg" fixed="top">
           <Container>
             <Navbar.Brand href="#home">
-              <img src="/images/WHS Logo.png" alt="logo" height={55} />
+              <img src="/images/PNTS.png" alt="logo" height={55} />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

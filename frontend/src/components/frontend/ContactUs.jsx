@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Footer from "@components/frontend/pages/Footer";
 import Header_ns from "@components/frontend/pages/Header_ns";
+//import Header from "@components/frontend/pages/Header";
 
 const ContactUs = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -23,7 +24,7 @@ const ContactUs = () => {
   return (
     <>
       <Header_ns />
-      <div className="contact-us" style={{ paddingTop: "90px" }}>
+      <div className="contact-us bg-light" style={{ paddingTop: "90px" }}>
         <div className="contact-hero-section">
           <div className="carousel-design">
             <img
