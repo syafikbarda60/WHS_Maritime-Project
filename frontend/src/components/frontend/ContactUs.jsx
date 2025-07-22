@@ -24,7 +24,7 @@ const ContactUs = () => {
   return (
     <>
       <Header_ns />
-      <div className="contact-us bg-light" style={{ paddingTop: "90px" }}>
+      <div className="contact-us bg-light" style={{ paddingTop: "50px" }}>
         <div className="contact-hero-section">
           <div className="carousel-design">
             <img

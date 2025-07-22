@@ -3,20 +3,206 @@ $secondary-color: #2654d0;
 $text-color: #000000;
 
 @use "sass:color";
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-
+//@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Noto+Sans+Javanese:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+//@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 body {
-  font-family: "Poppins", sans-serif;
-  height: 100%;
+  font-family: "Plus Jakarta Sans", sans-serif;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+  min-height: 100vh;
+  line-height: 1.4;
+  font-size: 16px;
+  background-color: #fff;
+  color: #000;
+
+  .navbar{
+    padding: 0.3rem;
+  }
+  .navbar-brand {
+    max-width: 290px;
+    width: auto;
+    
+  }
+
+  
+  @media (max-width: 480px) {
+    font-size: 14px;
+  }
+
+  @media (max-width: 320px) {
+    font-size: 12.5px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.container,
+.container-fluid {
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 6vw, 3rem);
+}
+h2 {
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
+}
+h3 {
+  font-size: clamp(1rem, 4vw, 2rem);
+}
+
+button,
+.btn {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+
+  @media (max-width: 480px) {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+// HERO SECTION (kontainer kiri-kanan)
+.hero-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  .hero-left,
+  .hero-right {
+    flex: 1 1 50%;
+    padding: 2rem;
+  }
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+
+    .hero-left,
+    .hero-right {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .hero-right {
+      display: none; // kalau memang tidak ada isinya
+    }
+
+    .hero-left {
+      text-align: center;
+
+      h1,
+      p {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+// ABOUT SECTION
+.about-section {
+  padding: 2rem 4rem;
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  img {
+    margin-top: 1rem;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 576px) {
+    padding: 1rem;
+
+    h2 {
+      font-size: 1.4rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// UMUM
+.section {
+  padding: 2rem;
+
+  @media (max-width: 576px) {
+    padding: 1rem;
+  }
+}
+
+// FLEX RESPONSIF UMUM
+.row {
+  display: flex;
+  flex-wrap: wrap;
+
+  @media (max-width: 576px) {
+    flex-direction: column;
+  }
+}
+
+.col {
+  flex: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+
+@media (max-width: 532px){
+  .navbar-toggler-icon{
+    max-width: 15px;
+  }
+
+  .navbar .nav-link {
+    font-size: 0.5rem;
+    margin-left: 5px;
+  }
+  .navbar .dropdown-item {
+    font-size: 0.5rem;
+  }
+
+  .navbar-brand {
+    .img-logo{
+      max-width: 160px;
+    width: auto;
+    }
+    .img-logo-pnts{
+      max-width: 55px ;
+      width: auto;
+    }
+  }
 }
 
 .nosticky {
   .navbar {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 1rem;
+    padding: 0.3rem;
     background-color: $primary-color;
     .nav-link {
       text-transform: uppercase;
@@ -83,7 +269,7 @@ body {
 .scrolled {
   .navbar {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 1rem;
+    padding: 0.4rem;
     background-color: transparent;
 
     .nav-link {
@@ -165,7 +351,7 @@ body {
 
   .navbar {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
-    padding: 1rem;
+    padding: 0.5rem;
     background-color: transparent;
 
     .nav-link {
@@ -247,117 +433,186 @@ body {
 }
 
 .footer-section {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
-  position: relative;
-  overflow: hidden;
-  width: 100vw;
-  
-  font-family: "Poppins", sans-serif;
-
   .footer-content {
-    padding-bottom: 1rem;
-    padding-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 2rem 1rem;
 
-    .footer-left,
-    .footer-center,
-    .footer-right {
-      text-align: left;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
 
-      h5 {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-        color: #000000;
-        text-align: left;
-      }
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: 1;
+    min-width: 200px;
+    box-sizing: border-box;
+    padding: 1rem;
 
-      p {
-        margin: 0.2rem 0;
-        font-size: 1rem;
-        color: #000000;
-      }
+    h5 {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      margin-bottom: 0.8rem;
+      font-weight: bold;
     }
 
-    .footer-center {
-      text-align: center;
+    p, li {
+      font-size: clamp(0.8rem, 2vw, 1rem);
+    }
+  }
 
-      .footer-link {
-        cursor: pointer;
-        color: #000000;
-        margin: 0.6rem 0;
-        display: block;
-        font-size: 1rem;
-        text-decoration: underline;
-        transition: color 0.3s ease;
-        text-align:left;
+  .footer-left {
+    text-align: left;
+
+    @media (max-width: 768px) {
+      text-align: center;
+    }
+
+    .brosure {
+      margin-top: 1rem;
+
+      .btn-link {
+        font-size: clamp(0.9rem, 2vw, 1rem);
 
         &:hover {
-          color: #d13731;
-        }
-      }
-    }
-
-    .footer-right {
-      text-align: right;
-
-      .rina-logo {
-        max-width: 250px;
-        margin-bottom: 0.5rem;
-      }
-
-      .cert-label {
-        font-weight: 600;
-        font-size: 1rem;
-        margin-bottom: 0.2rem;
-      }
-
-      .cert-iso {
-        font-weight: bold;
-        color: #00a3e0;
-        font-size: 1.1rem;
-      }
-    }
-
-    .brosure{
-      text-align: left;
-      .btn-link{
-        color: #00000098;
-        margin-top: 20px;
-        font-size: medium;
-        
-        &:hover{
           color: #d91d1d;
         }
-
-      }
-    }
-
-    .Administration{
-      .btn-link{
-        color: #00000098;
-        position: sticky;
-        margin-top: 90px;
-        font-size: medium;
-        text-align: left;
-
-        &:hover{
-            color: #d91d1d;
-        }
-      
       }
     }
   }
 
-  .footer-wave {
-    position: relative;
-    margin-top: -15px;
-    z-index: 1;
+  .footer-center {
+    text-align: center;
 
     img {
-      width: 100%;
-      height: auto;
       display: block;
-      margin-top: 20px;
+      margin: 0 auto 0.5rem;
+      max-width: 250px;
+      height: auto;
+
+      @media (max-width: 768px) {
+        max-width: 180px;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 150px;
+      }
+    }
+
+    .cert-label,
+    .cert-iso {
+      display: block;
+      text-align: center;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+    }
+
+    .cert-iso {
+      font-weight: bold;
+      color: #00a3e0;
+    }
+  }
+
+  
+  .footer-right {
+  text-align: left;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+
+    li {
+      margin: 4px 0;
+      cursor: pointer;
+      color: #000000;
+      font-size: 1rem;
+
+      &:hover {
+        color: #d13731;
+      }
+    }
+
+    ul {
+      padding-left: 15px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    text-align: left;
+
+    ul {
+      display: block;
+
+      li {
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+
+      ul {
+        padding-left: 15px;
+      }
+    }
+  }
+
+  @media (max-width: 480px) {
+    ul li {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+  .footer-bottom {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+    font-size: clamp(0.7rem, 1.5vw, 0.9rem);
+    color: #fff;
+    background-color: #2f69ad;
+    padding: 10px;
+
+    p {
+      margin: 0;
+    }
+
+    .administration-link {
+      color: #fff;
+      text-decoration: underline;
+
+      &:hover {
+        color: #ffd700;
+      }
+    }
+  }
+
+  .footer-logo {
+    display: flex;
+    //justify-content: center;
+    align-items: center;
+    //gap: 10px;
+    margin-bottom: 1rem;
+
+    img {
+      height: auto;
+      max-height: 60px;
+
+      @media (max-width: 768px) {
+        max-height: 50px;
+        justify-content: center;
+        margin-left: -20px;
+      }
+    }
+
+    span {
+      font-weight: bold;
+      font-size: clamp(0.9rem, 2vw, 1rem);
+      color: #000;
     }
   }
 }

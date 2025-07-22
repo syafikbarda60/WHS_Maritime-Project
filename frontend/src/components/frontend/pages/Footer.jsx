@@ -1,107 +1,99 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
-  const navigate = useNavigate();
-
   return (
-    <footer className="footer-section" style={{ alignItems: "center" }}>
+    <footer className="footer-section">
       <Container fluid>
         <Row className="footer-content">
           {/* KIRI */}
-          <Col md={5} className="footer-left">
-            <h5>
-              <strong>Head Quarter</strong>
-              <br />
-              Jakarta Indonesia
-            </h5>
-            <p>
-              Pondok Indah Office Tower2
-              <br />
-              16th Floor, Suite 1603
-              <br />
-              Jl. Sultan Iskandar Muda Kav V-TA Jakarta 12310
-              <br />- INDONESIA
-            </p>
-            <p>📞 +62 21 29705400</p>
-            <p>📠 +62 21 29705401</p>
-            <p>✉️ info@whsmaritime.com</p>
-
-            <div className="brosure">
-              <a
-                href="https://whsmaritime.com/wp-content/uploads/2023/01/Company-Profile-Orange-convert.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Button variant="link" size="lg">
-                  Download Brosur
-                </Button>
-              </a>
+          <Col md={4} className="footer-left">
+            <h5>About Us</h5>
+            <div className="footer-logo">
+              <img src="/images/logo PT WHS.jpg" alt="WHS Logo" />
+              <span>PT. WHS MARITIME INVESTMENTS</span>
             </div>
+            <p>
+              Pondok Indah Office Tower 2<br />
+              Lantai 16 Suite 1603
+              <br />
+              Jl. Sultan Iskandar Muda
+              <br />
+              Kav. V-TA, DKI Jakarta 12310
+            </p>
+            <p>Telp: 021-29705400</p>
+            <p>Fax: 021-29705401</p>
+            <p>Email: info@whsmaritime.com</p>
+            <a
+              href="https://whsmaritime.com/wp-content/uploads/2023/01/Company-Profile-Orange-convert.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button variant="link" size="sm">
+                Download Brochure
+              </Button>
+            </a>
           </Col>
 
           {/* TENGAH */}
-          <Col md={2} className="footer-center">
-            <h5>Quick Links</h5>
-            <nav className="footer-nav">
-              <span onClick={() => navigate("/")} className="footer-link">
-                Home
-              </span>
-              <span
-                onClick={() => navigate("/gallery")}
-                className="footer-link"
-              >
-                Gallery
-              </span>
-              <span
-                onClick={() => navigate("/contact_us")}
-                className="footer-link"
-              >
-                Contact Us
-              </span>
-              <span
-                onClick={() => navigate("/floatingTerminal")}
-                className="footer-link"
-              >
-                Our Service
-              </span>
-              <span
-                onClick={() => navigate("/admin/login")}
-                className="footer-link"
-              >
-                Login
-              </span>
-              <span onClick={() => navigate("/exdoma")} className="footer-link">
-                Exdoma
-              </span>
-            </nav>
+          <Col md={4} className="footer-center text-center">
+            <h5>ISO</h5>
+            <div>
+              <img
+                src="/images/ISO.png"
+                alt="RINA Certification"
+                className="ISO"
+              />
+              <p className="cert-label">CERTIFIED MANAGEMENT SYSTEM</p>
+              <p className="cert-iso">ISO 9001 · ISO 45001</p>
+            </div>
           </Col>
 
           {/* KANAN */}
-          <Col md={5} className="footer-right text-center">
-            <img
-              src="/images/ISO.png"
-              alt="RINA Certification"
-              className="rina-logo"
-            />
-            <p className="cert-label">CERTIFIED MANAGEMENT SYSTEM</p>
-            <p className="cert-iso">ISO 9001 · ISO 45001</p>
-            <div className="Administration">
-              <Button
-                variant="link"
-                onClick={() => navigate("/admin/login")}
-                size="lg"
-              >
-                <a>Administration</a>
-              </Button>
-            </div>
+          <Col md={4} className="footer-right">
+            <h5>Sitemap</h5>
+            <ul className="footer-nav">
+              <li>Home</li>
+              <li>
+                Our Services
+                <ul>
+                  <li>Floating Terminal (WHS Iskandar 1)</li>
+                  <li>
+                    Floating Crane
+                    <ul>
+                      <li>Ocean Flow 1</li>
+                      <li>Ocean Flow 3</li>
+                      <li>Padmasari</li>
+                    </ul>
+                  </li>
+                  <li>Tug and Barge (Prime Series)</li>
+                </ul>
+              </li>
+              <li>Gallery</li>
+              <li>Contact Us</li>
+              <li>Login</li>
+              <li>Exdoma</li>
+            </ul>
           </Col>
         </Row>
       </Container>
 
+      {/* WAVE */}
       <div className="footer-wave">
         <img src="/images/wave.svg" alt="Wave background" />
+      </div>
+
+      {/* COPYRIGHT + ADMINISTRATION */}
+      <div className="footer-bottom">
+        <p>© 2022 PT. WHS MARITIME INVESTMENTS</p>
+        <Button
+          variant="link"
+          size="sm"
+          onClick={() => (window.location.href = "/admin/login")}
+          className="administration-link"
+        >
+          Administration
+        </Button>
       </div>
     </footer>
   );

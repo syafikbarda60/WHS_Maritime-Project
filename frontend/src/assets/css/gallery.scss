@@ -1,11 +1,14 @@
 .gallery {
   background: #ffffff;
-  padding: 80px 65px;
+  padding: 65px 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 15px;
   min-height: 50vh;
   box-sizing: border-box;
+  padding-top: var(--header-height);
+  margin-top: 90px;
+  
 }
 
 .image-card {
@@ -81,9 +84,6 @@
 .image-card:hover .underline {
   transform: scaleX(1); 
 }
-.gallery {
-  padding-top: 100px; 
-}
 
 .fullscreen-modal {
   position: fixed;
@@ -142,5 +142,6 @@
   .gallery {
     padding: 20px;
     grid-template-columns: 1fr;
+    margin-top: 40px;
   }
 }

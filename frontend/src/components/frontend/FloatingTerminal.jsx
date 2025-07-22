@@ -2,30 +2,17 @@ import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-//import Header from "@components/frontend/pages/Header";
 import Footer from "@components/frontend/pages/Footer";
 import Header_ns from "@components/frontend/pages/Header_ns";
-//import Header_ns from "@components/frontend/pages/Header_ns_PNTS";
 
 const FloatingTerminal = () => {
   const [showArrow, setShowArrow] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowArrow(window.scrollY > 1100);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
   const [isImageVisible, setIsImageVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-
       setShowArrow(currentScrollY > 950);
 
       if (currentScrollY > lastScrollY && currentScrollY > 260) {
@@ -44,91 +31,73 @@ const FloatingTerminal = () => {
   return (
     <>
       <Header_ns />
-      <main>
-        <div className="floating-terminal">
+      <main className="floating-terminal bg-light">
+        <section className="hero">
           <img
             src="/Assets/floatingterminal_2.jpeg"
-            alt="Floating Terminal"
-            className="image-9"
+            alt=""
+            className="hero-bg"
           />
-          <img
-            src="/Assets/iskandarnobg.png"
-            alt="Kapal"
-            className={`iskandar-no-bg ${
-              isImageVisible ? "fade-in" : "fade-out"
-            }`}
-          />
-
-          <div className="effect-background">
-            <h1
-              className={`floating-terminal-whs-i-skandar-i ${
-                isImageVisible ? "fade-in" : "fade-out"
-              }`}
-            >
-              FLOATING TERMINAL WHS ISKANDAR I
-            </h1>
+          <div className="hero-overlay">
+            <div className="hero-content">
+              <img
+                src="/Assets/iskandarnobg.png"
+                alt=""
+                className={`hero-ship ${
+                  isImageVisible ? "fade-in" : "fade-out"
+                }`}
+              />
+              <h1
+                className={`hero-title ${
+                  isImageVisible ? "fade-in" : "fade-out"
+                }`}
+              >
+                FLOATING TERMINAL WHS ISKANDAR I
+              </h1>
+            </div>
+            {/*
+            <div className="hero-about">About Service</div>
+            <div className="hero-desc">
+              Designed With Three Separate Storage Bins Capable Of Storing More
+              Than 50,000 MT And Technologically Advanced Double Line Conveyor
+              System…
+            </div>
+            */}
           </div>
 
-          <div className="about-service">About Service</div>
-          <div className="wave-wrapper">
+          <div className="wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path
-                fill="#cc433c"
-                fillOpacity="1"
-                d="M0,160L40,176C80,192,160,224,240,208C320,192,400,128,480,112C560,96,640,128,720,170.7C800,213,880,267,960,266.7C1040,267,1120,213,1200,176C1280,139,1360,117,1400,106.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+                fill="#d91d1d"
+                fill-opacity="1"
+                d="M0,224L80,234.7C160,245,320,267,480,256C640,245,800,203,960,197.3C1120,192,1280,224,1360,240L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
               ></path>
             </svg>
           </div>
-          <div className="about-services-2">
-            Designed With Three Separate Storage Bins Capable Of Storing More
-            Than 50,000 MT And Technologically Advanced Double Line Conveyor
-            System, Capable Of Loading Using 2 Spouts Simultaneously At A Very
-            High Speed. We Are Able To Perform Homogeneous Blending Without
-            Compromising Our High Loading Rate.
-          </div>
-
-          <div className="floating-terminal2">
-            <div className="floating-terminal-link-list">
-              <Link to="/floatingTerminal" className="terminal-link">
+        </section>
+        <section className="content">
+          <div className="content-left">
+            <div className="link-list">
+              <Link to="/floatingTerminal">
                 • Floating Terminal WHS Iskandar I
               </Link>
-              <br />
-              <Link to="/oceanFlow1" className="terminal-link">
-                • Ocean Flow 1
-              </Link>
-              <br />
-              <Link to="/oceanFlow3" className="terminal-link">
-                • Ocean Flow 3
-              </Link>
-              <br />
-              <Link to="/padmasari" className="terminal-link">
-                • Padmasari
-              </Link>
-              <br />
-              <Link to="/tbSeries" className="terminal-link">
-                • Tug And Barge Prime Series
-              </Link>
+              <Link to="/oceanFlow1">• Ocean Flow 1</Link>
+              <Link to="/oceanFlow3">• Ocean Flow 3</Link>
+              <Link to="/padmasari">• Padmasari</Link>
+              <Link to="/tbSeries">• Tug And Barge Prime Series</Link>
             </div>
-            <img
-              src="/Assets/whs_iskandar.jpg"
-              alt="Floating 1"
-              className="floating-1"
-            />
-            <img
-              src="/Assets/floatingterminal_2.jpeg"
-              alt="Floating 2"
-              className="floating-2"
-            />
-            <img
-              src="/Assets/FLOATING_TERMINAL_3.jpg"
-              alt="Floating 2"
-              className="floating-3"
-            />
 
-            <div className="specification-title-outside">Specification</div>
+            <div className="image-gallery">
+              <img src="/Assets/whs_iskandar.jpg" alt="" />
+              <img src="/Assets/floatingterminal_2.jpeg" alt="" />
+              <img src="/Assets/FLOATING_TERMINAL_3.jpg" alt="" />
+            </div>
+          </div>
 
-            <div className="specification-table-wrapper">
-              <table className="specification-table">
+          <div className="content-right">
+            <h2>Specification</h2>
+            <div className="table-wrapper">
+              <table>
                 <thead>
                   <tr>
                     <th>Item</th>
@@ -152,58 +121,128 @@ const FloatingTerminal = () => {
                     <td>Loading Speed</td>
                     <td>High-speed simultaneous loading</td>
                   </tr>
+                  <tr>
+                    <td>Ship Type</td>
+                    <td>Bulk Coal Stock & Loading Barge</td>
+                  </tr>
+                  <tr>
+                    <td>Equipped with</td>
+                    <td>
+                      - 3 backhoes
+                      <br />
+                      - 2 groups of conveyors
+                      <br />- 2 travelling spreaders
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Flag</td>
+                    <td>Indonesia</td>
+                  </tr>
+                  <tr>
+                    <td>Year Built</td>
+                    <td>2011</td>
+                  </tr>
+                  <tr>
+                    <td>Port of Registry</td>
+                    <td>Tanjung Priok</td>
+                  </tr>
+                  <tr>
+                    <td>Classification</td>
+                    <td>B.K.I</td>
+                  </tr>
+                  <tr>
+                    <td>LOA</td>
+                    <td>198.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Beam Moulded</td>
+                    <td>54.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Depth Moulded</td>
+                    <td>12.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Draft Loaded</td>
+                    <td>8.50 m</td>
+                  </tr>
+                  <tr>
+                    <td>Air Draft</td>
+                    <td>19.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Gross Tonnage</td>
+                    <td>38,700 Tons</td>
+                  </tr>
+                  <tr>
+                    <td>Net Tonnage</td>
+                    <td>11,610 Tons</td>
+                  </tr>
+                  <tr>
+                    <td>Ballast Water Tank</td>
+                    <td>abt. 44,000 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Fuel Oil Tank</td>
+                    <td>abt. 4,950 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Fresh Water Tank</td>
+                    <td>abt. 1,100 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Cargo Hold</td>
+                    <td>abt. 67,000 m³</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-
-            {showArrow && (
-              <button
-                className="arrow-up-fixed"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                <FiArrowUp />
-              </button>
-            )}
           </div>
-
-          <div
-            className="carousel-wrapper"
-            style={{ marginTop: "700px", padding: "20px" }}
+        </section>
+        <section className="carousel-wrapper">
+          <Carousel
+            fade
+            indicators={true}
+            controls={false}
+            interval={3000}
+            pause={false}
+            wrap={true}
           >
-            <Carousel
-              fade
-              indicators={true}
-              controls={false}
-              interval={3000}
-              pause={false}
-              wrap={true}
-            >
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/Assets/whs_iskandar.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
-                />
-              </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="carousel-image"
+                src="/Assets/whs_iskandar.jpg"
+                alt=""
+                //style={{ height: "650px", objectFit: "cover" }}
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="carousel-image"
+                src="/Assets/floatingterminal_2.jpeg"
+                alt=""
+                //style={{ height: "650px", objectFit: "cover" }}
+              />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img
+                className="carousel-image"
+                src="/Assets/FLOATING_TERMINAL_3.jpg"
+                alt=""
+                //style={{ height: "650px", objectFit: "cover" }}
+              />
+            </Carousel.Item>
+          </Carousel>
+        </section>
 
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/Assets/floatingterminal_2.jpeg"
-                  style={{ height: "650px", objectFit: "cover" }}
-                />
-              </Carousel.Item>
-
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/Assets/FLOATING_TERMINAL_3.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
-                />
-              </Carousel.Item>
-            </Carousel>
-          </div>
-        </div>
+        {showArrow && (
+          <button
+            className="arrow-up"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <FiArrowUp />
+          </button>
+        )}
       </main>
       <Footer />
     </>

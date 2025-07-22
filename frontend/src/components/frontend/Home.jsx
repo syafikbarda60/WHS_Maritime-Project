@@ -139,6 +139,10 @@ const Home = () => {
   };
   return (
     <>
+      <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+      ></meta>
       <Header />
 
       <main>
@@ -286,7 +290,9 @@ const Home = () => {
             <Carousel.Item>
               <div
                 className="hero"
-                style={{ backgroundImage: "url('/images/SCREEN-HOOPER.jpg')" }}
+                style={{
+                  backgroundImage: "url('/images/SCREEN-HOOPER.jpg')",
+                }}
               >
                 <div className="overlay">
                   <div className="container-fluid">
@@ -603,6 +609,7 @@ const Home = () => {
           </div>
         </section>
       </main>
+
       <Footer />
     </>
   );

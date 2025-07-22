@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 import { FiArrowUp } from "react-icons/fi";
 import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
-//import Header from "@components/frontend/pages/Header";
 import Footer from "@components/frontend/pages/Footer";
-//import Header_ns from "@components/frontend/pages/Header_ns";
 import Header_ns from "@components/frontend/pages/Header_ns_PNTS";
 
 const OceanFlow3 = () => {
@@ -33,78 +31,70 @@ const OceanFlow3 = () => {
   return (
     <>
       <Header_ns />
-      <main>
-        <div className="ocean-flow">
-          <img src="/Assets/OC3.jpg" alt="Ocean Flow 3" className="image-11" />
+      <main className="ocean-flow-3">
+        <section className="hero">
+          <img src="/Assets/OC3.jpg" alt="Ocean Flow 3" className="hero-bg" />
 
-          <img
-            src="/Assets/OC3nobg.png"
-            alt="Kapal"
-            className={`ocean-flow-3-img ${
-              isImageVisible ? "fade-in" : "fade-out"
-            }`}
-          />
+          <div className="hero-overlay">
+            <div className="hero-content">
+              <img
+                src="/Assets/OC3nobg.png"
+                alt="Kapal"
+                className={`hero-image ${
+                  isImageVisible ? "fade-in" : "fade-out"
+                }`}
+              />
 
-          <div className="effect-background">
-            <h1
-              className={`ocean-flow-3-title ${
-                isImageVisible ? "fade-in" : "fade-out"
-              }`}
-            >
-              OCEAN FLOW 3
-            </h1>
+              <h1
+                className={`hero-title ${
+                  isImageVisible ? "fade-in" : "fade-out"
+                }`}
+              >
+                OCEAN FLOW 3
+              </h1>
+            </div>
           </div>
 
-          <div className="about-service">About Service</div>
-
-          <div className="wave-wrapper">
+          <div className="wave">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
               <path
-                fill="#cc433c"
+                fill="#d91d1d"
                 fillOpacity="1"
-                d="M0,160L40,176C80,192,160,224,240,208C320,192,400,128,480,112C560,96,640,128,720,170.7C800,213,880,267,960,266.7C1040,267,1120,213,1200,176C1280,139,1360,117,1400,106.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
+                d="M0,224L80,234.7C160,245,320,267,480,256C640,245,800,203,960,197.3C1120,192,1280,224,1360,240L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
               ></path>
             </svg>
           </div>
+        </section>
 
-          <div className="about-services-2">
-            Designed with three separate storage bins capable of storing more
-            than 50,000 MT and technologically advanced double line conveyor
-            system, capable of loading using 2 spouts simultaneously at a very
-            high speed. We are able to perform homogeneous blending without
-            compromising our high loading rate.
-          </div>
-
-          <div className="floating-terminal2">
-            <div className="floating-terminal-link-list">
+        <section className="content">
+          <div className="content-left">
+            <div className="link-list">
               <Link to="/floatingTerminal" className="terminal-link">
                 • Floating Terminal WHS Iskandar I
               </Link>
-              <br />
               <Link to="/oceanFlow1" className="terminal-link">
                 • Ocean Flow 1
               </Link>
-              <br />
               <Link to="/oceanFlow3" className="terminal-link">
                 • Ocean Flow 3
               </Link>
-              <br />
               <Link to="/padmasari" className="terminal-link">
                 • Padmasari
               </Link>
-              <br />
               <Link to="/tbSeries" className="terminal-link">
                 • Tug And Barge Prime Series
               </Link>
             </div>
+            <div className="image-gallery">
+              <img src="/Assets/OC3.jpg" alt="oceanflow1" />
+              <img src="/Assets/OC3-2.jpg" alt="oceanflow2" />
+            </div>
+          </div>
 
-            <img src="/Assets/OC3.jpg" alt="oceanflow1" className="oc-1" />
-            <img src="/Assets/OC3-2.jpg" alt="oceanflow2" className="oc-2" />
-
-            <div className="specification-title-outside">Specification</div>
-
-            <div className="specification-table-wrapper">
-              <table className="specification-table">
+          <div className="content-right">
+            <h2>Specification</h2>
+            <div className="table-wrapper">
+              <table>
                 <thead>
                   <tr>
                     <th>Item</th>
@@ -128,49 +118,110 @@ const OceanFlow3 = () => {
                     <td>Loading Speed</td>
                     <td>High-speed simultaneous loading</td>
                   </tr>
+                  <tr>
+                    <td>Ship Type</td>
+                    <td>Bulk Coal Stock & Loading Barge</td>
+                  </tr>
+                  <tr>
+                    <td>Equipped with</td>
+                    <td>
+                      - 3 backhoes
+                      <br />- 2 groups of conveyors
+                      <br />- 2 travelling spreaders
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Flag</td>
+                    <td>Indonesia</td>
+                  </tr>
+                  <tr>
+                    <td>Year Built</td>
+                    <td>2011</td>
+                  </tr>
+                  <tr>
+                    <td>Port of Registry</td>
+                    <td>Tanjung Priok</td>
+                  </tr>
+                  <tr>
+                    <td>Classification</td>
+                    <td>B.K.I</td>
+                  </tr>
+                  <tr>
+                    <td>LOA</td>
+                    <td>198.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Beam Moulded</td>
+                    <td>54.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Depth Moulded</td>
+                    <td>12.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Draft Loaded</td>
+                    <td>8.50 m</td>
+                  </tr>
+                  <tr>
+                    <td>Air Draft</td>
+                    <td>19.00 m</td>
+                  </tr>
+                  <tr>
+                    <td>Gross Tonnage</td>
+                    <td>38,700 Tons</td>
+                  </tr>
+                  <tr>
+                    <td>Net Tonnage</td>
+                    <td>11,610 Tons</td>
+                  </tr>
+                  <tr>
+                    <td>Ballast Water Tank</td>
+                    <td>abt. 44,000 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Fuel Oil Tank</td>
+                    <td>abt. 4,950 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Fresh Water Tank</td>
+                    <td>abt. 1,100 m³</td>
+                  </tr>
+                  <tr>
+                    <td>Cargo Hold</td>
+                    <td>abt. 67,000 m³</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-
-            {showArrow && (
-              <button
-                className="arrow-up-fixed"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                <FiArrowUp />
-              </button>
-            )}
           </div>
+        </section>
 
-          <div
-            className="carousel-wrapper"
-            style={{ marginTop: "700px", padding: "20px" }}
+        <section className="carousel-wrapper">
+          <Carousel
+            fade
+            indicators={true}
+            controls={false}
+            interval={3000}
+            pause={false}
+            wrap={true}
           >
-            <Carousel
-              fade
-              indicators={true}
-              controls={false}
-              interval={3000}
-              pause={false}
-              wrap={true}
-            >
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/Assets/OC3.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block w-100"
-                  src="/Assets/OC3-2.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
-                />
-              </Carousel.Item>
-            </Carousel>
-          </div>
-        </div>
+            <Carousel.Item>
+              <img className="carousel-images" src="/Assets/OC3.jpg" alt="" />
+            </Carousel.Item>
+            <Carousel.Item>
+              <img className="carousel-images" src="/Assets/OC3-2.jpg" alt="" />
+            </Carousel.Item>
+          </Carousel>
+        </section>
+
+        {showArrow && (
+          <button
+            className="arrow-up"
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          >
+            <FiArrowUp />
+          </button>
+        )}
       </main>
       <Footer />
     </>
