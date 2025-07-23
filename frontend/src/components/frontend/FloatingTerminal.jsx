@@ -43,7 +43,7 @@ const FloatingTerminal = () => {
               <img
                 src="/Assets/iskandarnobg.png"
                 alt=""
-                className={`hero-ship ${
+                className={`hero-image ${
                   isImageVisible ? "fade-in" : "fade-out"
                 }`}
               />
@@ -210,7 +210,7 @@ const FloatingTerminal = () => {
           >
             <Carousel.Item>
               <img
-                className="carousel-image"
+                className="carousel-images"
                 src="/Assets/whs_iskandar.jpg"
                 alt=""
                 //style={{ height: "650px", objectFit: "cover" }}
@@ -218,7 +218,7 @@ const FloatingTerminal = () => {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="carousel-image"
+                className="carousel-images"
                 src="/Assets/floatingterminal_2.jpeg"
                 alt=""
                 //style={{ height: "650px", objectFit: "cover" }}
@@ -226,7 +226,7 @@ const FloatingTerminal = () => {
             </Carousel.Item>
             <Carousel.Item>
               <img
-                className="carousel-image"
+                className="carousel-images"
                 src="/Assets/FLOATING_TERMINAL_3.jpg"
                 alt=""
                 //style={{ height: "650px", objectFit: "cover" }}

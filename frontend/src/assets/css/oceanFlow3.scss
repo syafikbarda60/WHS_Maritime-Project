@@ -92,8 +92,13 @@ body {
     padding: 40px;
     background: #fff;
 
+    > * {
+      min-width: 0;
+    }
+
     .content-left {
       flex: 1 1 300px;
+      max-width: 100%;
 
       .link-list {
         margin-bottom: 20px;
@@ -127,6 +132,8 @@ body {
 
     .content-right {
       flex: 2 1 500px;
+      min-width: 300px;
+      max-width: 100%;
 
       h2 {
         font-size: 1.5rem;
@@ -162,12 +169,15 @@ body {
     max-width: 1200px;
 
     .carousel {
+      position: relative;
+
       .carousel-inner {
         width: 100%;
         display: flex;
       }
 
       .carousel-item {
+        position: relative;
         width: 100%;
 
         .carousel-images {
@@ -229,17 +239,19 @@ body {
   }
 }
 
-/* Responsive Breakpoints */
+/* Responsive */
 @media (max-width: 768px) {
   .ocean-flow-3 {
     margin-top: 2.5rem;
+
     .hero .hero-content {
       flex-direction: column;
+      margin-top: 30px;
 
       .hero-image {
         margin-top: -2rem;
-        max-width: 60%;
-        margin-bottom: -2rem;
+        max-width: 50%;
+        margin-bottom: -3rem;
       }
 
       .hero-title {
@@ -253,19 +265,21 @@ body {
 
       .content-left,
       .content-right {
-        max-width: 100%;
         margin: 0 auto;
+        max-width: 95%;
       }
 
       .content-left .image-gallery img {
+        flex: 1 1 100%;
         max-width: 100%;
       }
     }
 
     .carousel-wrapper {
       max-width: 95vw;
+      
 
-      .carousel-item .carousel-images {
+      .carousel-item .carousel-image {
         aspect-ratio: 4 / 3;
       }
     }
@@ -275,15 +289,15 @@ body {
 @media (max-width: 480px) {
   .ocean-flow-3 {
     .hero .hero-content .hero-title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .content-right h2 {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
     }
 
     .carousel-wrapper {
-      .carousel-item .carousel-images {
+      .carousel-item .carousel-image {
         aspect-ratio: 1 / 1;
       }
     }

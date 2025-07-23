@@ -35,42 +35,47 @@ const Padmasari = () => {
       <Header_ns />
       <main>
         <div className="padmasari">
-          <img
-            src="/Assets/PADMASARI-3.jpg"
-            alt="Padmasari"
-            className="image-12"
-          />
+          <div className="hero">
+            <img
+              src="/Assets/PADMASARI-3.jpg"
+              alt="Padmasari"
+              className="hero-bg"
+            />
 
-          <img
-            src="/Assets/PADMASARI-1nobg.png"
-            alt="Kapal"
-            className={`padmasari-img ${
-              isImageVisible ? "fade-in" : "fade-out"
-            }`}
-          />
+            <div className="hero-overlay">
+              <div className="hero-content">
+                <img
+                  src="/Assets/PADMASARI-1nobg.png"
+                  alt="Kapal"
+                  className={`hero-image ${
+                    isImageVisible ? "fade-in" : "fade-out"
+                  }`}
+                />
 
-          <div className="effect-background">
-            <h1
-              className={`padmasari-title ${
-                isImageVisible ? "fade-in" : "fade-out"
-              }`}
-            >
-              PADMASARI
-            </h1>
+                <h1
+                  className={`hero-title ${
+                    isImageVisible ? "fade-in" : "fade-out"
+                  }`}
+                >
+                  PADMASARI
+                </h1>
+              </div>
+            </div>
+
+            {/* <div className="about-service">About Service</div> */}
+
+            <div className="wave">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path
+                  fill="#d91d1d"
+                  fill-opacity="1"
+                  d="M0,224L80,234.7C160,245,320,267,480,256C640,245,800,203,960,197.3C1120,192,1280,224,1360,240L1440,256L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+                ></path>
+              </svg>
+            </div>
           </div>
 
-          <div className="about-service">About Service</div>
-
-          <div className="wave-wrapper">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-              <path
-                fill="#cc433c"
-                fillOpacity="1"
-                d="M0,160L40,176C80,192,160,224,240,208C320,192,400,128,480,112C560,96,640,128,720,170.7C800,213,880,267,960,266.7C1040,267,1120,213,1200,176C1280,139,1360,117,1400,106.7L1440,96L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-              ></path>
-            </svg>
-          </div>
-
+          {/*    
           <div className="about-services-2">
             Designed with three separate storage bins capable of storing more
             than 50,000 MT and technologically advanced double line conveyor
@@ -78,90 +83,76 @@ const Padmasari = () => {
             high speed. We are able to perform homogeneous blending without
             compromising our high loading rate.
           </div>
+            */}
 
-          <div className="floating-terminal2">
-            <div className="floating-terminal-link-list">
-              <Link to="/floatingTerminal" className="terminal-link">
-                • Floating Terminal WHS Iskandar I
-              </Link>
-              <br />
-              <Link to="/oceanFlow1" className="terminal-link">
-                • Ocean Flow 1
-              </Link>
-              <br />
-              <Link to="/oceanFlow3" className="terminal-link">
-                • Ocean Flow 3
-              </Link>
-              <br />
-              <Link to="/padmasari" className="terminal-link">
-                • Padmasari
-              </Link>
-              <br />
-              <Link to="/tbSeries" className="terminal-link">
-                • Tug And Barge Prime Series
-              </Link>
+          <div className="content">
+            <div className="content-left">
+              <div className="link-list">
+                <Link to="/floatingTerminal">
+                  • Floating Terminal WHS Iskandar I
+                </Link>
+                <Link to="/oceanFlow1">• Ocean Flow 1</Link>
+                <Link to="/oceanFlow3">• Ocean Flow 3</Link>
+                <Link to="/padmasari">• Padmasari</Link>
+                <Link to="/tbSeries">• Tug And Barge Prime Series</Link>
+              </div>
+              <div className="image-gallery">
+                <img
+                  src="/Assets/PADMASARI-1.jpg"
+                  alt="padmasari1"
+                  //className="padmasari-1"
+                />
+                <img
+                  src="/Assets/PADMASARI-2.jpg"
+                  alt="padmasari2"
+                  // className="padmasari-2"
+                />
+                <img
+                  src="/Assets/PADMASARI-3.jpg"
+                  alt="padmasari3"
+                  //className="padmasari-3"
+                />
+              </div>
             </div>
 
-            <img
-              src="/Assets/PADMASARI-1.jpg"
-              alt="padmasari1"
-              className="padmasari-1"
-            />
-            <img
-              src="/Assets/PADMASARI-2.jpg"
-              alt="padmasari2"
-              className="padmasari-2"
-            />
-            <img
-              src="/Assets/PADMASARI-3.jpg"
-              alt="padmasari3"
-              className="padmasari-3"
-            />
-
-            <div className="specification-title-outside">Specification</div>
-
-            <div className="specification-table-wrapper">
-              <table className="specification-table">
-                <thead>
-                  <tr>
-                    <th>Item</th>
-                    <th>Details</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Storage Capacity</td>
-                    <td>More than 50,000 MT</td>
-                  </tr>
-                  <tr>
-                    <td>Conveyor System</td>
-                    <td>Double line with 2 spouts</td>
-                  </tr>
-                  <tr>
-                    <td>Blending</td>
-                    <td>Homogenous blending supported</td>
-                  </tr>
-                  <tr>
-                    <td>Loading Speed</td>
-                    <td>High-speed simultaneous loading</td>
-                  </tr>
-                </tbody>
-              </table>
+            <div className="content-right">
+              <h2>Specification</h2>
+              <div className="table-wrapper">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Item</th>
+                      <th>Details</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Storage Capacity</td>
+                      <td>More than 50,000 MT</td>
+                    </tr>
+                    <tr>
+                      <td>Conveyor System</td>
+                      <td>Double line with 2 spouts</td>
+                    </tr>
+                    <tr>
+                      <td>Blending</td>
+                      <td>Homogenous blending supported</td>
+                    </tr>
+                    <tr>
+                      <td>Loading Speed</td>
+                      <td>High-speed simultaneous loading</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
             </div>
-
-            {showArrow && (
-              <button
-                className="arrow-up-fixed"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                <FiArrowUp />
-              </button>
-            )}
+            {/* <div className="specification-title-outside">Specification</div> */}
+            {/* <div className="specification-table-wrapper"></div> */}
           </div>
 
           <div
             className="carousel-wrapper"
-            style={{ marginTop: "760px", padding: "20px" }}
+            // style={{ marginTop: "760px", padding: "20px" }}
           >
             <Carousel
               fade
@@ -173,27 +164,35 @@ const Padmasari = () => {
             >
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
+                  className="carousel-images"
                   src="/Assets/PADMASARI-1.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
+                  //style={{ height: "650px", objectFit: "cover" }}
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
+                  className="carousel-images"
                   src="/Assets/PADMASARI-2.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
+                  // style={{ height: "650px", objectFit: "cover" }}
                 />
               </Carousel.Item>
               <Carousel.Item>
                 <img
-                  className="d-block w-100"
+                  className="carousel-images"
                   src="/Assets/PADMASARI-3.jpg"
-                  style={{ height: "650px", objectFit: "cover" }}
+                  // style={{ height: "650px", objectFit: "cover" }}
                 />
               </Carousel.Item>
             </Carousel>
           </div>
+          {showArrow && (
+            <button
+              className="arrow-up"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              <FiArrowUp />
+            </button>
+          )}
         </div>
       </main>
       <Footer />
