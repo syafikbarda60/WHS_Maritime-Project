@@ -160,9 +160,10 @@ const Home = () => {
                 className="hero"
                 style={{ backgroundImage: "url('/images/whs iskandar.jpg')" }}
               >
-                <div className="overlay">
-                  <div className="container-fluid">
-                    <div className="hero-content text-center">
+                <div className="overlay"> </div>
+                <div className="container-fluid">
+                  <div className="hero-content">
+                    <div className="text-content">
                       <h1>
                         HOMOGENOUSLY{" "}
                         <span style={{ color: "#d91d1d" }}>BLENDED</span>
@@ -184,6 +185,8 @@ const Home = () => {
                         built in to our loading system is also our strongest
                         suite, for our clients.
                       </p>
+                    </div>
+                    <div className="button-content">
                       <Button
                         variant="primary"
                         onClick={() => {
@@ -206,9 +209,10 @@ const Home = () => {
                 className="hero"
                 style={{ backgroundImage: "url('/images/carousel3.jpg')" }}
               >
-                <div className="overlay">
-                  <div className="container-fluid">
-                    <div className="hero-content text-center">
+                <div className="overlay"></div>
+                <div className="container-fluid">
+                  <div className="hero-content">
+                    <div className="text-content">
                       <h1>
                         MODERN <span style={{ color: "#d91d1d" }}>ASSETS</span>
                       </h1>
@@ -228,6 +232,8 @@ const Home = () => {
                         of additional equipment, to meet and go beyond our
                         client needs and expectations.
                       </p>
+                    </div>
+                    <div className="button-content">
                       <Button
                         variant="primary"
                         onClick={() => {
@@ -250,11 +256,12 @@ const Home = () => {
                 className="hero"
                 style={{ backgroundImage: "url('/images/carousel2.jpg')" }}
               >
-                <div className="overlay">
-                  <div className="container-fluid">
-                    <div className="hero-content text-center">
+                <div className="overlay"></div>
+                <div className="container-fluid">
+                  <div className="hero-content">
+                    <div className="text-content">
                       <h1>
-                        TECHNOLOGICALLY <br />
+                        TECHNOLOGICALLY{" "}
                         <span style={{ color: "#d91d1d" }}>IMPROVED</span>
                       </h1>
                       <h3>
@@ -271,6 +278,8 @@ const Home = () => {
                         scales, auto/mechanical sampler, metal detector, and
                         metal separator in order to deliver a clean product
                       </p>
+                    </div>
+                    <div className="button-content">
                       <Button
                         variant="primary"
                         onClick={() => {
@@ -294,11 +303,12 @@ const Home = () => {
                   backgroundImage: "url('/images/SCREEN-HOOPER.jpg')",
                 }}
               >
-                <div className="overlay">
-                  <div className="container-fluid">
-                    <div className="hero-content text-center">
+                <div className="overlay"></div>
+                <div className="container-fluid">
+                  <div className="hero-content">
+                    <div className="text-content">
                       <h1>
-                        QUALITTY
+                        QUALITY
                         <span style={{ color: "#d91d1d" }}>CONTROLLED</span>
                       </h1>
                       <h3>
@@ -318,6 +328,8 @@ const Home = () => {
                         personnel with the requisite knowledge, skill, and
                         experience.
                       </p>
+                    </div>
+                    <div className="button-content">
                       <Button
                         variant="primary"
                         onClick={() => {
@@ -509,7 +521,7 @@ const Home = () => {
           </div>
         </section>
 
-        <section id="section3" className="section3 py-5">
+        <section id="section3" className="section3 py-5 bg-dark">
           <Container>
             <Row className="align-items-center">
               <Col

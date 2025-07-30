@@ -4,6 +4,7 @@ import { Carousel } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Footer from "@components/frontend/pages/Footer";
 import Header_ns from "@components/frontend/pages/Header_ns";
+import Header from "@components/frontend/pages/Header";
 
 const FloatingTerminal = () => {
   const [showArrow, setShowArrow] = useState(false);
@@ -30,7 +31,7 @@ const FloatingTerminal = () => {
 
   return (
     <>
-      <Header_ns />
+      <Header />
       <main className="floating-terminal bg-light">
         <section className="hero">
           <img
@@ -40,15 +41,15 @@ const FloatingTerminal = () => {
           />
           <div className="hero-overlay">
             <div className="hero-content">
-              <img
+              {/* <img
                 src="/Assets/iskandarnobg.png"
                 alt=""
                 className={`hero-image ${
                   isImageVisible ? "fade-in" : "fade-out"
                 }`}
-              />
+              /> */}
               <h1
-                className={`hero-title ${
+                className={`hero-title  ${
                   isImageVisible ? "fade-in" : "fade-out"
                 }`}
               >

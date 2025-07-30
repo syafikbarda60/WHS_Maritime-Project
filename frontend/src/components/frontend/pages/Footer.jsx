@@ -1,7 +1,10 @@
 import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
+
   return (
     <footer className="footer-section">
       <Container fluid>
@@ -53,26 +56,34 @@ const Footer = () => {
           <Col md={4} className="footer-right">
             <h5>Sitemap</h5>
             <ul className="footer-nav">
-              <li>Home</li>
+              <li onClick={() => navigate("/")}>Home</li>
               <li>
                 Our Services
                 <ul>
-                  <li>Floating Terminal (WHS Iskandar 1)</li>
+                  <li onClick={() => navigate("/floatingTerminal")}>
+                    Floating Terminal (WHS Iskandar 1)
+                  </li>
                   <li>
                     Floating Crane
                     <ul>
-                      <li>Ocean Flow 1</li>
-                      <li>Ocean Flow 3</li>
-                      <li>Padmasari</li>
+                      <li onClick={() => navigate("/oceanFlow1")}>
+                        Ocean Flow 1
+                      </li>
+                      <li onClick={() => navigate("/oceanFlow3")}>
+                        Ocean Flow 3
+                      </li>
+                      <li onClick={() => navigate("/padmasari")}>Padmasari</li>
                     </ul>
                   </li>
-                  <li>Tug and Barge (Prime Series)</li>
+                  <li onClick={() => navigate("/tbSeries")}>
+                    Tug and Barge (Prime Series)
+                  </li>
                 </ul>
               </li>
-              <li>Gallery</li>
-              <li>Contact Us</li>
-              <li>Login</li>
-              <li>Exdoma</li>
+              <li onClick={() => navigate("/gallery")}>Gallery</li>
+              <li onClick={() => navigate("/contact_us")}>Contact Us</li>
+              <li onClick={() => navigate("/login")}>Login</li>
+              <li onClick={() => navigate("/exdoma")}>Exdoma</li>
             </ul>
           </Col>
         </Row>

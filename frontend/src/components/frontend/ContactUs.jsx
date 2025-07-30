@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { motion } from "framer-motion";
 
 import Footer from "@components/frontend/pages/Footer";
 import Header_ns from "@components/frontend/pages/Header_ns";
-//import Header from "@components/frontend/pages/Header";
 
 const ContactUs = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -24,7 +19,7 @@ const ContactUs = () => {
   return (
     <>
       <Header_ns />
-      <div className="contact-us bg-light" style={{ paddingTop: "50px" }}>
+      <div className="contact-us bg-light">
         <div className="contact-hero-section">
           <div className="carousel-design">
             <img
@@ -32,23 +27,49 @@ const ContactUs = () => {
               src="/Assets/whs-iskandar.jpg"
               alt="Background"
             />
+            <div className="overlay"></div>
             <img
               src="/Assets/Effect-Background.png"
               alt="Overlay"
               className="effect-background"
             />
           </div>
-          <div className="contact-us3-container">
+          <motion.div
+            className="contact-us3-container"
+            initial={{ opacity: 0, y: -40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
             <h2 className="contact-us3">
-              <span className="contact-us-3-span">CONTACT </span>
-              <span className="contact-us-3-span2">US</span>
+              <motion.span
+                className="contact-us-3-span"
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                CONTACT{" "}
+              </motion.span>
+              <motion.span
+                className="contact-us-3-span2"
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                US
+              </motion.span>
             </h2>
             <div className="line-2"></div>
-          </div>
+          </motion.div>
         </div>
 
         <section className="main-contact-content">
-          <div className="headquarter-info">
+          <motion.div
+            className="headquarter-info"
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <h2>Head Quarter</h2>
             <h3>Jakarta Indonesia</h3>
             <p>
@@ -70,9 +91,15 @@ const ContactUs = () => {
               <img src="/Assets/email.png" alt="Email" className="icon" />
               <span>info@whsmaritime.com</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="map-container">
+          <motion.div
+            className="map-container"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
             <iframe
               className="google-map-iframe"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.356255771772!2d106.77940707594268!3d-6.262188593723872!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f1a8876aaaab%3A0x759218f415f443d0!2sPondok%20Indah%20Office%20Tower%202!5e0!3m2!1sen!2sid!4v1720420000000!5m2!1sen!2sid"
@@ -81,7 +108,7 @@ const ContactUs = () => {
               referrerPolicy="no-referrer-when-downgrade"
               title="Google Map WHS"
             ></iframe>
-          </div>
+          </motion.div>
         </section>
       </div>
       <Footer />

@@ -11,7 +11,7 @@ const News = () => {
   const { id } = useParams();
 
   const capitalizeFirst = (text) => {
-    if (!text) return '';
+    if (!text) return "";
     return text.charAt(0).toUpperCase() + text.slice(1);
   };
 
@@ -33,24 +33,55 @@ const News = () => {
     fetchNews();
   }, [id]);
 
-  if (!newsItem) return <p>Loading...</p>;
+  if (!newsItem)
+    return (
+      <>
+        <div className="d-flex flex-column justify-content-center align-items-center vh-100 vw-100">
+          <div
+            className="spinner-border text-danger"
+            role="status"
+            style={{ width: "4rem", height: "4rem" }}
+          >
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <div className="mt-3 loading-text">Loading...</div>
+        </div>
+
+        <style>{`
+        .loading-text {
+          font-size: 1.5rem;
+          color: #d91d1d;
+          animation: pulse 1.5s infinite ease-in-out;
+          font-weight: bold;
+          letter-spacing: 1px;
+        }
+
+        @keyframes pulse {
+          0% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.05); }
+          100% { opacity: 0.3; transform: scale(1); }
+        }
+      `}</style>
+      </>
+    );
 
   return (
     <>
       <Header_ns />
-      <main style={{ paddingTop: "100px" }}>
+
+      <main style={{ paddingTop: "3.5rem" }}>
         <div className="news-detail-container">
           <article className="main-article">
             <h1>{newsItem.title}</h1>
             <p className="meta">
               {new Date(newsItem.created_at).toLocaleDateString()} · By Author ·
-              1234 views
             </p>
 
             <div className="carousel-wrapper">
               <Carousel
                 fade
-                indicators={true}
+                indicators={false}
+                controls={false}
                 interval={2000}
                 className="custom-carousel"
               >
@@ -66,7 +97,7 @@ const News = () => {
               </Carousel>
             </div>
 
-             <div className="content">
+            <div className="content">
               <p>{newsItem.short_desc}</p>
 
               {/* Konten dengan format otomatis */}
@@ -85,8 +116,8 @@ const News = () => {
                   ))
               )}
             </div>
-            </article>
-{/*   
+          </article>
+          {/*   
             <section className="comments">
               <h3>0 Comments</h3>
               <div className="comment">Belum ada komentar.</div>

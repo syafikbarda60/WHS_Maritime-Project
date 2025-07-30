@@ -121,14 +121,14 @@ const Dashboard = () => {
             <div className="col-md-3">
               <div className="card border-0 shadow">
                 <div className="card-body">
-                  <h4 className="mb-4">Sidebar</h4>
+                  {/* <h4 className="mb-4">Sidebar</h4> */}
                   <ul className="list-group list-group-flush">
                     {/*<li className="list-group-item p-0 mb-2">
                       <a href="#" className="btn btn-link text-start">
                         Dashboard
                       </a>
                     </li>*/}
-                    
+
                     {/*<li className="list-group-item p-0 mb-2">
                       <a href="#" className="btn btn-link text-start">
                         News
@@ -149,7 +149,7 @@ const Dashboard = () => {
 
             <div className="col-md-9">
               <div className="card border-0 shadow p-4">
-                <h4 className="mb-3">Add Service</h4>
+                <h4 className="mb-3">Add Data</h4>
                 <form onSubmit={handleSubmit}>
                   <div className="row">
                     <div className="col-md-6 mb-2">

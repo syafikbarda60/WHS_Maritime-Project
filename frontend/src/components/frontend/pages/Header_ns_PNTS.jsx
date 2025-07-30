@@ -7,22 +7,47 @@ import Container from "react-bootstrap/Container";
 import { useNavigate } from "react-router-dom";
 
 const Header_ns = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
   const navigate = useNavigate();
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header>
-      <section className="nosticky">
-        <Navbar expand="lg" fixed="top">
+    <header className="PNTS">
+      <section className="scrolled">
+        <Navbar
+          expand="lg"
+          fixed="top"
+          onToggle={(expanded) => setMenuOpen(expanded)}
+          className={`navbar_PNTS ${scrolled ? "scrolled" : ""} ${
+            menuOpen ? "active" : ""
+          }`}
+        >
           <Container>
-            <Navbar.Brand className="PNTS" href="/">
-              <img
-                src="/images/PNTS.png"
-                alt="logo_PNTS"
-                className="img-logo-pnts"
-                height={55}
-                width={120}
-                //style={{ maxWidth: "120px", height: "auto" }}
-              />
+            <Navbar.Brand href="/">
+              <div
+                style={{
+                  backgroundColor: "#FFFCFB",
+                  padding: "8px",
+                  borderRadius: "20px",
+                  display: "inline-block",
+                  boxShadow: "0 2px 6px rgba(0,0,0,0.1)",
+                }}
+              >
+                <img
+                  src="/images/PNTS.png"
+                  alt="logo"
+                  style={{ height: "49px", width: "auto" }}
+                />
+              </div>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">

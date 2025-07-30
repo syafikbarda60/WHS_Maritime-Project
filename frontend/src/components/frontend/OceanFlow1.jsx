@@ -45,13 +45,13 @@ const FloatingTerminal = () => {
 
             <div className="hero-overlay">
               <div className="hero-content">
-                <img
+                {/* <img
                   src="/Assets/oceanflownobg.png"
                   alt="Kapal"
                   className={`hero-image ${
                     isImageVisible ? "fade-in" : "fade-out"
                   }`}
-                />
+                /> */}
                 <h1
                   className={`hero-title ${
                     isImageVisible ? "fade-in" : "fade-out"
