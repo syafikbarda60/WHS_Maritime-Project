@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import Header from "@components/frontend/pages/Header";
 import Footer from "@components/frontend/pages/Footer";
 import { FiTable } from "react-icons/fi";
+import { Dropdown } from "react-bootstrap";
+
 //import Header_ns from '@components/frontend/pages/Header_ns';
 
 //----------------------------------------------header effect------------------------------------------------------------------------------------------------------------------
@@ -485,12 +487,26 @@ const Home = () => {
                       material from the barge to mother vessel with a sustained
                       high loading rate.
                     </p>
-                    <Button
-                      variant="danger"
-                      onClick={() => goto("/oceanFlow1")}
-                    >
-                      Learn More
-                    </Button>
+                    <Dropdown>
+                      <Dropdown.Toggle
+                        variant="danger"
+                        id="learn-more-dropdown"
+                      >
+                        Learn More
+                      </Dropdown.Toggle>
+
+                      <Dropdown.Menu>
+                        <Dropdown.Item onClick={() => goto("/oceanFlow1")}>
+                          Ocean Flow 1
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={() => goto("/oceanFlow3")}>
+                          Ocean Flow 3
+                        </Dropdown.Item>
+                        <Dropdown.Item onClick={() => goto("/padmasari")}>
+                          Padmasari
+                        </Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown>
                   </div>
                 </div>
               </div>

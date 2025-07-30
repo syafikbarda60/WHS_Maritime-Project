@@ -37,13 +37,13 @@ const OceanFlow3 = () => {
 
           <div className="hero-overlay">
             <div className="hero-content">
-              <img
+              {/* <img
                 src="/Assets/OC3nobg.png"
                 alt="Kapal"
                 className={`hero-image ${
                   isImageVisible ? "fade-in" : "fade-out"
                 }`}
-              />
+              /> */}
 
               <h1
                 className={`hero-title ${
